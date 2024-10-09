@@ -5,5 +5,4 @@ struct LinkItem: Identifiable {
     let title: String
     let image: String
     let url: String
-    let webPage: WebPage
 }

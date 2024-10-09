@@ -8,16 +8,8 @@ struct LinkView: View {
         VStack {
             // ヘッダー
             header
-            
             // サイトを表示
-            ScrollView {
-                // title(大学サイト)
-                title1
-                // webサイトを表示
-                displayLink
-                // title2(その他)
-                title2
-            }
+            displayScroll
         }
     }
 }
@@ -27,6 +19,19 @@ struct LinkView: View {
 }
 
 extension LinkView {
+    //サイト表示をスクロール
+    private var displayScroll: some View {
+        ScrollView {
+            // title(大学サイト)
+            title1
+            // webサイトを表示
+            displayLink1
+            // title2(その他)
+            title2
+            // webサイトを表示
+            displayLink2
+        }
+    }
     //ヘッダー
     private var header: some View {
         Text("Links")
@@ -46,7 +51,7 @@ extension LinkView {
         }
     }
     // webサイト表示1
-    private var displayLink: some View {
+    private var displayLink1: some View {
         VStack(spacing: 16) {
             ForEach(linkVM.linkItems) { link in
                 LinkRow(link: link)
@@ -63,5 +68,14 @@ extension LinkView {
                 .padding()
             Divider()
         }
+    }
+    // webサイト表示2
+    private var displayLink2: some View {
+        VStack(spacing: 16) {
+            ForEach(linkVM.otherLinkItems) { link in
+                LinkRow(link: link)
+            }
+        }
+        .padding()
     }
 }

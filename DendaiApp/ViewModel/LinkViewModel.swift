@@ -4,6 +4,7 @@ import WebKit
 // データの管理と提供
 class LinkViewModel: ObservableObject {
     @Published var linkItems: [LinkItem] = []
+    @Published var otherLinkItems: [LinkItem] = []
     
     init() {
         // リンクを読み込む
@@ -19,7 +20,14 @@ class LinkViewModel: ObservableObject {
             // 年間日程
             LinkItem(title: "年間予定", image: "calendar", url: "https://www.dendai.ac.jp/about/campuslife/schedule.html"),
             //　総合メディアセンター
-            LinkItem(title: "総合メディアセンター", image: "book", url: "https://www.mrcl.dendai.ac.jp/mrcl/#gsc.tab=0")
+            LinkItem(title: "総合メディアセンター", image: "book", url: "https://www.mrcl.dendai.ac.jp/mrcl/#gsc.tab=0"),
+            // 教科書購入サイト
+            LinkItem(title: "教科書販売", image: "books.vertical", url: "https://tdu-coop.jp/")
+        ]
+        
+        otherLinkItems = [
+            // 公式X
+            LinkItem(title: "公式X", image: "bubble.right", url: "https://x.com/TDU_webmaster?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor")
         ]
     }
 }

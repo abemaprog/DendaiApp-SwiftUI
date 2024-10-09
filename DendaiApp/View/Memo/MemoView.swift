@@ -1,18 +1,65 @@
-//
-//  MemoView.swift
-//  DendaiApp
-//
-//  Created by Manato Abe on 2024/10/09.
-//
-
 import SwiftUI
 
 struct MemoView: View {
+    @StateObject private var memoVM = MemoViewModel()
+    @State private var newMemoContent = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                // ヘッダー
+                header
+                Spacer().frame(height: 20)
+                
+                // メモの追加フォーム
+                HStack {
+                    TextField("メモを追加", text: $newMemoContent)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.leading)
+                    
+                    Button(action: {
+                        guard !newMemoContent.isEmpty else { return }
+                        memoVM.addMemo(content: newMemoContent)
+                        newMemoContent = "" // 追加後にテキストフィールドをクリア
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.system(size: 30))
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.trailing)
+                }
+                
+                Spacer().frame(height: 20)
+                
+                // メモのリスト表示
+                List {
+                    ForEach(memoVM.memoItems) { memo in
+                        NavigationLink(destination: MemoEditView(memo: memo, memoVM: memoVM)) {
+                            Text(memo.content)
+                        }
+                    }
+                    .onDelete(perform: memoVM.deleteMemo) // スワイプで削除
+                    .onMove(perform: memoVM.moveMemo)     // 並べ替えのサポート
+                    .moveDisabled(false)                 // 常に並べ替えを可能に
+                }
+                .listStyle(PlainListStyle())
+            }
+            .navigationBarTitle("メモ", displayMode: .inline)
+        }
     }
 }
 
 #Preview {
     MemoView()
+}
+
+extension MemoView {
+    private var header: some View {
+        Text("Memos")
+            .font(.title3)
+            .fontWeight(.bold)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color(.cyan))
+    }
 }
