@@ -1,18 +1,18 @@
 //
-//  SettingView.swift
+//  WebView.swift
 //  DendaiApp
 //
-//  Created by Manato Abe on 2024/10/08.
+//  Created by Manato Abe on 2024/10/09.
 //
 
 import SwiftUI
 
-struct SettingView: View {
+struct WebView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    SettingView()
+    WebView()
 }
