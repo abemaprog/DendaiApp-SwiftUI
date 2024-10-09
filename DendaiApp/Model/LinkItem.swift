@@ -1,8 +1,9 @@
 import Foundation
 
 struct LinkItem: Identifiable {
-    let id = UUID()   // 各リンクの一意のID
+    let id = UUID() 
     let title: String
     let image: String
     let url: String
+    let webPage: WebPage
 }
