@@ -7,12 +7,40 @@
 
 import SwiftUI
 
-struct TopTabView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+import SwiftUI
 
-#Preview {
-    TopTabView()
+struct TopTabView: View {
+    let list: [String]
+    @Binding var selectedTab: Int
+    
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(0 ..< list.count, id: \.self) { index in
+                Button(action: {
+                    withAnimation {
+                        selectedTab = index
+                    }
+                }) {
+                    VStack(spacing: 0) {
+                        HStack {
+                            Text(list[index])
+                                .font(Font.system(size: 18, weight: .semibold))
+                                .foregroundColor(Color.primary)
+                        }
+                        .frame(
+                            width: UIScreen.main.bounds.width / CGFloat(list.count),
+                            height: 48 - 3
+                        )
+                        Rectangle()
+                            .fill(selectedTab == index ? Color.cyan : Color.clear)
+                            .frame(height: 3)
+                    }
+                    .fixedSize()
+                }
+            }
+        }
+        .frame(height: 48)
+        .background(Color.white)
+        //.shadow(color: .primary.opacity(0.2), radius: 3, x: 4, y: 4)
+    }
 }

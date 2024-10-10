@@ -39,13 +39,13 @@ struct MemoView: View {
                         }
                     }
                     .onDelete(perform: memoVM.deleteMemo) // スワイプで削除
-                    .onMove(perform: memoVM.moveMemo)     // 並べ替えのサポート
+                    .onMove(perform: memoVM.moveMemo)     // 並べ替え
                     .moveDisabled(false)                 // 常に並べ替えを可能に
                 }
                 .listStyle(PlainListStyle())
             }
-            .navigationBarTitle("メモ", displayMode: .inline)
         }
+        
     }
 }
 
@@ -55,7 +55,7 @@ struct MemoView: View {
 
 extension MemoView {
     private var header: some View {
-        Text("Memos")
+        Text("Memo")
             .font(.title3)
             .fontWeight(.bold)
             .padding()

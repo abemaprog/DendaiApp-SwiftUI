@@ -1,28 +1,45 @@
 import SwiftUI
 
+// クラブリストを引数として受け取る
 struct CampusTabView: View {
-    @State private var selectedTab: Int = 0 // 0: 千住, 1: 鳩山
-    @StateObject private var viewModel = ClubListsViewModel()
-    
-    let tabs: [String] = ["千住キャンパス", "鳩山キャンパス"]
+    let clubs: [ClubListItem]
     
     var body: some View {
-        VStack(spacing: 0) {
-            // カスタムタブ (千住キャンパス・鳩山キャンパス)
-            TopTabView(list: tabs, selectedTab: $selectedTab)
-            
-            // 選択されたタブに応じてビューを切り替え
-            if selectedTab == 0 {
-                SenjuClubView(clubListsVM: viewModel)
-            } else {
-                HatoyamaClubView(clubListsVM: viewModel)
-            }
-        }
-        .navigationTitle("サークル・部活動")
-        .navigationBarTitleDisplayMode(.inline)
+        // リストとして表示させる
+        clubList
     }
 }
 
 #Preview {
-    CampusTabView()
+    CampusTabView(clubs: [ClubListItem(name: "サッカー部", url: "https://example.com", category: .sports, campus: .senju)])
 }
+
+extension CampusTabView {
+    private var clubList: some View {
+        ScrollView {
+            // クラブネームを表示
+            displayClubName
+        }
+    }
+    
+    private var displayClubName: some View {
+        VStack(spacing: 16) {
+            ForEach(clubs) { club in
+                Link(destination: URL(string: club.url)!) {
+                    HStack {
+                        Text(club.name)
+                            .font(.headline)
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .shadow(radius: 2)
+                }
+            }
+        }
+        .padding()
+    }
+}
+

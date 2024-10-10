@@ -1,18 +1,39 @@
-//
-//  SenjuClubView.swift
-//  DendaiApp
-//
-//  Created by Manato Abe on 2024/10/10.
-//
-
 import SwiftUI
 
 struct SenjuClubView: View {
+    @ObservedObject var clubListsVM: ClubListsViewModel // ViewModelを参照
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Text("部活・サークル")
+                        .padding()
+                    Divider()
+                }
+                VStack(spacing: 16) {
+                    ForEach(clubListsVM.senjuClubs) { club in
+                        Link(destination: URL(string: club.url)!) {
+                            HStack {
+                                Text(club.name)
+                                    .font(.headline)
+                                    .foregroundColor(.black) // リンクカラー
+                                Spacer()
+                            }
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(8)
+                            .shadow(radius: 2)
+                        }
+                    }
+                }
+                .padding()
+            }
+            
+        }
     }
 }
 
 #Preview {
-    SenjuClubView()
+    SenjuClubView(clubListsVM: ClubListsViewModel())
 }

@@ -40,6 +40,7 @@ struct MemoEditView: View {
             // 初期値に現在のメモ内容を設定
             updatedContent = memo.content
         }
+        .customBackButton(label: "戻る", color: .black)
     }
 }
 
@@ -49,7 +50,7 @@ struct MemoEditView: View {
 
 extension MemoEditView {
     private var header: some View {
-        Text("Memos")
+        Text("メモの編集")
             .font(.title3)
             .fontWeight(.bold)
             .padding()
