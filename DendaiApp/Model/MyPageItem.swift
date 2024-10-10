@@ -9,6 +9,7 @@ import Foundation
 
 struct MyPageItem {
     let contactURL: String
+    let displayCircleURL: String
     //let reviewURL: String
     let privacyPolicyURL: String
     let termsOfServiceURL: String

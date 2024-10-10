@@ -28,7 +28,7 @@ extension MyPageView {
             .fontWeight(.bold)
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color(.cyan))
+            .background(Color.cyan)
     }
     
     // 設定リストをSectionで表示
@@ -42,6 +42,15 @@ extension MyPageView {
                             Image(systemName: "envelope.fill")
                                 .foregroundColor(.blue)
                             Text("お問い合わせ")
+                        }
+                    }
+                NavigationLink(destination: WebView(url: URL(string: myPageVM.pageItem.displayCircleURL)!)
+                    .navigationTitle("部活・サークル掲載希望")) {
+                        HStack {
+                            Image(systemName: "megaphone.fill")
+                                .foregroundColor(.orange)
+                                .rotationEffect(.degrees(-15))
+                            Text("部活・サークル掲載希望")
                         }
                     }
 //                アプリが世に出てから追加する

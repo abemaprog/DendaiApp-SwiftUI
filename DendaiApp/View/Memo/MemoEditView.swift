@@ -22,17 +22,8 @@ struct MemoEditView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             
-            Button(action: {
-                memoVM.updateMemo(id: memo.id, newContent: updatedContent)
-            }) {
-                Text("保存")
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .padding()
+            // 保存ボタン
+            saveButton
             
             Spacer()
         }
@@ -57,4 +48,20 @@ extension MemoEditView {
             .frame(maxWidth: .infinity)
             .background(Color(.cyan))
     }
+    
+    private var saveButton: some View {
+        Button(action: {
+            memoVM.updateMemo(id: memo.id, newContent: updatedContent)
+        }) {
+            Text("保存")
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+        }
+        .padding()
+    }
 }
+
+

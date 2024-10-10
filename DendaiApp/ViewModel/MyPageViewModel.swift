@@ -7,7 +7,9 @@ class MyPageViewModel: ObservableObject {
 
         self.pageItem = MyPageItem(
             // お問い合わせURL
-            contactURL: "https://forms.gle/GjBLRFu3xrFy1rq56",
+            contactURL: "https://forms.gle/CeYvvMUhhJLCnKxD8",
+            // サークル掲載希望
+            displayCircleURL: "https://forms.gle/iBdRt1kPfWqgHbQu9",
             // レビュー
 //            revewrequest: "",
             // プライバシーポリシーURL

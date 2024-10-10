@@ -9,7 +9,19 @@ import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            // 背景画像
+            Image("background")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            
+            // 中心に配置する画像
+            Image("icon")
+                .resizable()
+                .frame(width: 200, height: 200)
+        }
+        .transition(.opacity) // フェードアウトアニメーション
     }
 }
 

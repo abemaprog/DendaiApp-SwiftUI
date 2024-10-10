@@ -40,7 +40,7 @@ extension ClubListsView {
             .fontWeight(.bold)
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color(.cyan))
+            .background(Color.cyan)
     }
     private var senjuClubs: some View {
         ScrollView {

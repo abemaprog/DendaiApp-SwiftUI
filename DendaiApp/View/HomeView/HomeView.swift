@@ -12,51 +12,11 @@ struct HomeView: View {
             // ヘッダー
             header
             
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("時間割")
-                        .font(.title3)
-                        .bold()
-                        .padding()
-                    Spacer()
-                    //学校と交渉してAPIを用意してもらえるか（公認アプリにしてもらう）
-//                    Image(systemName: "bell.fill")
-//                        .padding()
-                }
-                Divider()
-                
-                Spacer().frame(height:10)
-            }
-            
+            // テキスト「時間割」の表示
+            displayTitle
             
             // 各曜日ごとの講義を表示する
-            ScrollView {
-                ForEach(weekdays, id: \.self) { day in
-                    VStack {
-                        // 曜日のヘッダー
-                        dayHeader(day: day)
-                        
-                        // 開いた場合、該当曜日の講義を表示
-                        if expandedDays[day] == true {
-                            // 特定の曜日の講義を表示（昇順でソート）
-                            ForEach(homeVM.lectureItems
-                                .filter { $0.day == day }   // 曜日でフィルタ
-                                .sorted { $0.period < $1.period }  // 時限で昇順にソート
-                            ) { lecture in
-                                LectureRow(lecture: lecture)
-                                    .onTapGesture {
-                                        selectedLecture = lecture // 編集する講義を設定
-                                        showingEditView = true    // 編集モーダルを表示
-                                    }
-                            }
-                            .padding(.horizontal)
-                            
-                            // 追加ボタンを表示
-                            addLectureButton(for: day)
-                        }
-                    }
-                }
-            }
+            displayLecture
         }
         // モーダルとしてEditLectureViewを表示
         .sheet(isPresented: $showingEditView) {
@@ -66,6 +26,69 @@ struct HomeView: View {
             } else if let day = selectedDay {
                 // 新規追加用モーダル表示
                 EditLectureView(homeVM: homeVM, selectedDay: day)
+            }
+        }
+    }
+}
+
+#Preview {
+    HomeView()
+}
+
+extension HomeView {
+    // ヘッダー
+    private var header: some View {
+        Text("Home")
+            .font(.title3)
+            .fontWeight(.bold)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.cyan)
+    }
+    // テキスト「時間割の表示」
+    private var displayTitle: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("時間割")
+                    .font(.title3)
+                    .bold()
+                    .padding()
+                Spacer()
+                //学校と交渉してAPIを用意してもらえるか（公認アプリにしてもらう）
+                //                    Image(systemName: "bell.fill")
+                //                        .padding()
+            }
+            Divider()
+            
+            Spacer().frame(height:10)
+        }
+    }
+    private var displayLecture: some View {
+        ScrollView {
+            ForEach(weekdays, id: \.self) { day in
+                VStack {
+                    // 曜日のヘッダー
+                    dayHeader(day: day)
+                    
+                    // 開いた場合、該当曜日の講義を表示
+                    if expandedDays[day] == true {
+                        // 特定の曜日の講義を表示（昇順でソート）
+                        ForEach(homeVM.lectureItems
+                            .filter { $0.day == day }   // 曜日でフィルタ
+                            .sorted { $0.period < $1.period }  // 時限で昇順にソート
+                        ) { lecture in
+                            LectureRow(lecture: lecture)
+                                .onTapGesture {
+                                    selectedLecture = lecture // 編集する講義を設定
+                                    showingEditView = true    // 編集モーダルを表示
+                                }
+                        }
+                        .padding(.horizontal)
+                        
+                        // 追加ボタンを表示
+                        addLectureButton(for: day)
+                    }
+                }
             }
         }
     }
@@ -119,20 +142,5 @@ struct HomeView: View {
     private var weekdays: [String] {
         ["月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
     }
-}
 
-#Preview {
-    HomeView()
-}
-
-extension HomeView {
-    // ヘッダー
-    private var header: some View {
-        Text("Home")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.cyan)
-    }
 }

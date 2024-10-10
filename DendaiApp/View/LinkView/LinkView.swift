@@ -26,7 +26,7 @@ extension LinkView {
             .fontWeight(.bold)
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color(.cyan))
+            .background(Color.cyan)
     }
     //サイト表示をスクロール
     private var displayScroll: some View {
