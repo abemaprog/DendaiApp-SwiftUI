@@ -17,7 +17,7 @@ struct ContentView: View {
                 }
             MemoView()
                 .tabItem {
-                    Image(systemName: "document")
+                    Image(systemName: "doc.text")
                     Text("Memo")
                 }
             ClubListsView()
