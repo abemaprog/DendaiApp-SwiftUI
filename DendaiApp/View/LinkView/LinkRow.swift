@@ -45,7 +45,7 @@ extension LinkRow {
             Spacer()
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(.white))
         .cornerRadius(10)
         .shadow(radius: 2)
     }
