@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct MyPageView: View {
-    @ObservedObject private var myPageVM = MyPageViewModel() // ViewModelを保持
+    @ObservedObject private var myPageVM = MyPageViewModel()
     
     var body: some View {
-        NavigationView { // NavigationViewでラップ
+        NavigationView {
             VStack {
                 // ヘッダー
                 header
@@ -21,7 +21,7 @@ struct MyPageView: View {
 }
 
 extension MyPageView {
-    // カスタムヘッダー
+    // ヘッダー
     private var header: some View {
         Text("MyPage")
             .font(.title3)
@@ -81,7 +81,7 @@ extension MyPageView {
         }
     }
     
-    // アプリのバージョンとビルド番号を取得するプロパティ
+    // アプリのバージョンを取得するプロパティ
     private var appVersion: String {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             return "\(version)"

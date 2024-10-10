@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct LectureRow: View {
+    var lecture: HomeItem
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text("\(lecture.period)限")
+                .font(.headline)
+                .frame(width: 60, alignment: .leading)
+            
+            VStack(alignment: .leading) {
+                Text(lecture.lectureName)
+                    .font(.subheadline)
+                Text("教室: \(lecture.room)")
+                    .font(.caption)
+                    .foregroundColor(.black)
+            }
+            
+            Spacer()
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(8)
+        .shadow(radius: 2)
     }
 }
 
 #Preview {
-    LectureRow()
+    LectureRow(lecture: HomeItem(lectureName: "数学", period: 1, room: "A101", day: "月"))
 }

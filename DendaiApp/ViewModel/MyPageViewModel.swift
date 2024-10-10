@@ -8,6 +8,8 @@ class MyPageViewModel: ObservableObject {
         self.pageItem = MyPageItem(
             // お問い合わせURL
             contactURL: "https://forms.gle/GjBLRFu3xrFy1rq56",
+            // レビュー
+//            revewrequest: "",
             // プライバシーポリシーURL
             privacyPolicyURL: "https://docs.google.com/document/d/e/2PACX-1vSU7JrgmGIqc0YmqpyD2lXylIps2oDOGW55MqOWX-HlZ_zcbfVzDLoBLw_MikXFpTFI6XWg3L_20iF_/pub",
             //利用規約

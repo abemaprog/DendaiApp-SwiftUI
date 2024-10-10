@@ -2,7 +2,10 @@ import SwiftUI
 
 struct EditLectureView: View {
     @ObservedObject var homeVM: HomeViewModel
-    @Environment(\.dismiss) var dismiss  // モーダルを閉じるための環境変数
+    var selectedDay: String? = nil      // 追加する曜日
+    var selectedLecture: HomeItem? = nil // 編集する講義
+    
+    @Environment(\.dismiss) var dismiss
     @State private var lectureName: String = ""
     @State private var period: Int = 1
     @State private var room: String = ""
@@ -20,23 +23,50 @@ struct EditLectureView: View {
                     TextField("教室", text: $room)
                 }
                 
+                // 編集モードの場合、削除ボタンを表示
+                if let lecture = selectedLecture {
+                    Section {
+                        Button(action: {
+                            homeVM.deleteLecture(item: lecture)  // 講義を削除
+                            dismiss()  // モーダルを閉じる
+                        }) {
+                            Text("削除")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+                
                 Button("保存") {
-                    homeVM.addLecture(lectureName: lectureName, period: period, room: room)
-                    dismiss()  // 講義追加後にモーダルを閉じる
+                    if let lecture = selectedLecture {
+                        // 既存の講義を編集
+                        homeVM.editLecture(item: lecture, lectureName: lectureName, period: period, room: room)
+                    } else if let day = selectedDay {
+                        // 新規講義を追加
+                        homeVM.addLecture(lectureName: lectureName, period: period, room: room, day: day)
+                    }
+                    dismiss()
                 }
             }
-            .navigationTitle("講義の追加")
+            .navigationTitle(selectedLecture != nil ? "講義の編集" : "\(selectedDay ?? "")の講義追加")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("キャンセル") {
-                        dismiss() // キャンセル時にモーダルを閉じる
+                        dismiss()
                     }
                 }
+            }
+        }
+        .onAppear {
+            if let lecture = selectedLecture {
+                // 編集する講義の情報を初期化
+                lectureName = lecture.lectureName
+                period = lecture.period
+                room = lecture.room
             }
         }
     }
 }
 
 #Preview {
-    EditLectureView(homeVM: HomeViewModel())
+    EditLectureView(homeVM: HomeViewModel(), selectedDay: "月曜日")
 }

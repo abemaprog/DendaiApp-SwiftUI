@@ -19,6 +19,15 @@ struct LinkView: View {
 }
 
 extension LinkView {
+    //ヘッダー
+    private var header: some View {
+        Text("Links")
+            .font(.title3)
+            .fontWeight(.bold)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color(.cyan))
+    }
     //サイト表示をスクロール
     private var displayScroll: some View {
         ScrollView {
@@ -31,15 +40,6 @@ extension LinkView {
             // webサイトを表示
             displayLink2
         }
-    }
-    //ヘッダー
-    private var header: some View {
-        Text("Links")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color(.cyan))
     }
     // title1
     private var title1: some View {
