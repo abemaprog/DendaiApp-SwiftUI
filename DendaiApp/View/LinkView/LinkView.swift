@@ -45,6 +45,7 @@ extension LinkView {
     private var title1: some View {
         VStack(alignment: .leading) {
             Text("大学サイト")
+                .font(.title3)
                 .bold()
                 .padding()
             Divider()
@@ -56,6 +57,7 @@ extension LinkView {
             ForEach(linkVM.linkItems) { link in
                 LinkRow(link: link)
             }
+            Divider()
         }
         .padding()
     }
@@ -64,6 +66,7 @@ extension LinkView {
     private var title2: some View {
         VStack(alignment: .leading) {
             Text("その他")
+                .font(.title3)
                 .bold()
                 .padding()
             Divider()
@@ -75,6 +78,7 @@ extension LinkView {
             ForEach(linkVM.otherLinkItems) { link in
                 LinkRow(link: link)
             }
+            Divider()
         }
         .padding()
     }

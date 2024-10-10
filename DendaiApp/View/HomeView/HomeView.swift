@@ -2,15 +2,32 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var homeVM = HomeViewModel()
-    @State private var expandedDay: String? = nil // 開いている曜日をトグルする
+    @State private var expandedDays: [String: Bool] = [:]  // 曜日ごとのトグル状態を管理
     @State private var selectedLecture: HomeItem? = nil // 編集する講義
     @State private var showingEditView = false    // 講義追加用モーダルを表示するかどうか
     @State private var selectedDay: String? = nil // 講義を追加する曜日
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             // ヘッダー
             header
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("時間割")
+                        .font(.title3)
+                        .bold()
+                        .padding()
+                    Spacer()
+                    //学校と交渉してAPIを用意してもらえるか（公認アプリにしてもらう）
+//                    Image(systemName: "bell.fill")
+//                        .padding()
+                }
+                Divider()
+                
+                Spacer().frame(height:10)
+            }
+            
             
             // 各曜日ごとの講義を表示する
             ScrollView {
@@ -20,7 +37,7 @@ struct HomeView: View {
                         dayHeader(day: day)
                         
                         // 開いた場合、該当曜日の講義を表示
-                        if expandedDay == day {
+                        if expandedDays[day] == true {
                             // 特定の曜日の講義を表示（昇順でソート）
                             ForEach(homeVM.lectureItems
                                 .filter { $0.day == day }   // 曜日でフィルタ
@@ -53,31 +70,25 @@ struct HomeView: View {
         }
     }
     
-    // ヘッダー
-    private var header: some View {
-        Text("Home")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.cyan)
-    }
-    
     // 曜日のヘッダー
     private func dayHeader(day: String) -> some View {
         Button(action: {
-            expandedDay = expandedDay == day ? nil : day // 開閉をトグル
+            // 曜日の開閉状態をトグル
+            expandedDays[day] = !(expandedDays[day] ?? false)
         }) {
             HStack {
                 Text(day)
                     .font(.headline)
+                    .foregroundColor(.black)
                     .padding()
                 Spacer()
-                Image(systemName: expandedDay == day ? "chevron.up" : "chevron.down")
+                Image(systemName: (expandedDays[day] ?? false) ? "chevron.up" : "chevron.down")
+                    .foregroundColor(.gray)
                     .padding()
             }
-            .background(Color.gray.opacity(0.2))
+            .background(Color.white)
             .cornerRadius(8)
+            .shadow(radius: 2)
         }
     }
     
@@ -89,14 +100,18 @@ struct HomeView: View {
             selectedDay = day        // どの曜日に追加するかを指定
             showingEditView = true   // モーダルを開く
         }) {
-            HStack {
-                Image(systemName: "plus.circle.fill")
-                    .font(.system(size: 18))
-                Text("\(day)に講義を追加")
-                    .fontWeight(.bold)
+            VStack {
+                HStack {
+                    Spacer()
+                    Image(systemName: "plus.circle.fill")
+                        .font(.system(size: 13))
+                    Text("\(day)に講義を追加")
+                        .fontWeight(.bold)
+                }
+                .foregroundColor(.blue)
+                .padding(.horizontal)
             }
-            .foregroundColor(.blue)
-            .padding(.horizontal)
+            .padding()
         }
     }
     
@@ -108,4 +123,16 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+}
+
+extension HomeView {
+    // ヘッダー
+    private var header: some View {
+        Text("Home")
+            .font(.title3)
+            .fontWeight(.bold)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.cyan)
+    }
 }

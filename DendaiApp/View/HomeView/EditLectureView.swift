@@ -11,7 +11,11 @@ struct EditLectureView: View {
     @State private var room: String = ""
     
     var body: some View {
-        NavigationView {
+        VStack(spacing: 0) {  // ヘッダーとFormの間の余白をゼロにする
+            // カスタムヘッダー
+            header
+            
+            // フォーム部分
             Form {
                 Section(header: Text("講義情報を入力")) {
                     TextField("講義名", text: $lectureName)
@@ -47,23 +51,33 @@ struct EditLectureView: View {
                     dismiss()
                 }
             }
-            .navigationTitle(selectedLecture != nil ? "講義の編集" : "\(selectedDay ?? "")の講義追加")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("キャンセル") {
-                        dismiss()
-                    }
+            .background(Color.clear)  // Formの背景を透明にして境界線を目立たなくする
+            .onAppear {
+                if let lecture = selectedLecture {
+                    // 編集する講義の情報を初期化
+                    lectureName = lecture.lectureName
+                    period = lecture.period
+                    room = lecture.room
                 }
             }
         }
-        .onAppear {
-            if let lecture = selectedLecture {
-                // 編集する講義の情報を初期化
-                lectureName = lecture.lectureName
-                period = lecture.period
-                room = lecture.room
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("キャンセル") {
+                    dismiss()
+                }
             }
         }
+    }
+    
+    // カスタムヘッダー
+    private var header: some View {
+        Text(selectedLecture != nil ? "講義の編集" : "\(selectedDay ?? "")の講義追加")
+            .font(.title3)
+            .fontWeight(.bold)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.cyan)
     }
 }
 

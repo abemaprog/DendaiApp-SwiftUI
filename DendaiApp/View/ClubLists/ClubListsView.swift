@@ -47,7 +47,7 @@ extension ClubListsView {
             VStack(alignment: .leading, spacing: 16) {
                 // 委員会
                 if !clubListsVM.senjuCommiteeClubs.isEmpty {
-                    Text("・委員会")
+                    Text("委員会")
                         .font(.title2)
                         .bold()
                     Divider()
@@ -59,7 +59,7 @@ extension ClubListsView {
                 
                 // 体育会各団体
                 if !clubListsVM.senjuSportsClubs.isEmpty {
-                    Text("・体育会各団体")
+                    Text("体育会各団体")
                         .font(.title2)
                         .bold()
                     Divider()
@@ -71,7 +71,7 @@ extension ClubListsView {
                 
                 // 文化部会団体
                 if !clubListsVM.senjuCultureClubs.isEmpty {
-                    Text("・文化部会団体")
+                    Text("文化部会団体")
                         .font(.title2)
                         .bold()
                     Divider()
@@ -83,7 +83,7 @@ extension ClubListsView {
                 
                 // 学術研究部会
                 if !clubListsVM.senjuAcademicClubs.isEmpty {
-                    Text("・学術研究部会")
+                    Text("学術研究部会")
                         .font(.title2)
                         .bold()
                     Divider()
@@ -95,7 +95,7 @@ extension ClubListsView {
                 
                 // 有志団体
                 if !clubListsVM.senjuVolunteerClubs.isEmpty {
-                    Text("・有志団体")
+                    Text("有志団体")
                         .font(.title2)
                         .bold()
                     Divider()
@@ -107,7 +107,7 @@ extension ClubListsView {
                 
                 // 工学部第二部
                 if !clubListsVM.senjuEngineeringClubs.isEmpty {
-                    Text("・工学部第二部")
+                    Text("工学部第二部")
                         .font(.title2)
                         .bold()
                     Divider()
@@ -126,7 +126,7 @@ extension ClubListsView {
             VStack(alignment: .leading, spacing: 16) {
                 // 委員会
                 if !clubListsVM.hatoyamaCommiteeClubs.isEmpty {
-                    Text("・委員会")
+                    Text("委員会")
                         .font(.title2)
                         .bold()
                     Divider()
@@ -138,7 +138,7 @@ extension ClubListsView {
                 
                 // 体育会各団体
                 if !clubListsVM.hatoyamaSportsClubs.isEmpty {
-                    Text("・体育会各団体")
+                    Text("体育会各団体")
                         .font(.title2)
                         .bold()
                     Divider()
@@ -150,7 +150,7 @@ extension ClubListsView {
                 
                 // 学術文化部会
                 if !clubListsVM.hatoyamaAcademicClubs.isEmpty {
-                    Text("・学術文化部会")
+                    Text("学術文化部会")
                         .font(.title2)
                         .bold()
                     Divider()
