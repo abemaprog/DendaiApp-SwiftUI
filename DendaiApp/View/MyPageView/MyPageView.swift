@@ -53,14 +53,13 @@ extension MyPageView {
                             Text("部活・サークル掲載希望")
                         }
                     }
-//                アプリが世に出てから追加する
-//                NavigationLink(destination: Text("レビュー")) {
-//                    HStack {
-//                        Image(systemName: "star.fill")
-//                            .foregroundColor(.yellow)
-//                        Text("レビュー")
-//                    }
-//                }
+                Link(destination: URL(string: myPageVM.pageItem.reviewURL)!) {
+                        HStack {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                            Text("レビューのお願い")
+                        }
+                    }
             }
             
             // アプリ情報セクション
