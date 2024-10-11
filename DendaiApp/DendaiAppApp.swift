@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct DendaiAppApp: App {
+struct DendaiApp: App {
     @State private var showSplash = true
     
     var body: some Scene {
@@ -16,7 +16,7 @@ struct DendaiAppApp: App {
             if showSplash {
                 SplashView()
                     .onAppear {
-                        // 3秒後にスプラッシュ画面を非表示にして ContentView に遷移
+                        // 2.5秒後にスプラッシュ画面を非表示にして ContentView に遷移
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             withAnimation {
                                 showSplash = false
