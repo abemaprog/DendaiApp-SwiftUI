@@ -8,7 +8,7 @@
 import Foundation
 
 struct HomeItem: Identifiable, Codable {
-    let id = UUID()  // ユニークなID
+    let id = UUID()  
     var lectureName: String  // 講義名
     var period: Int  // 時限 (1〜7限)
     var room: String // 教室

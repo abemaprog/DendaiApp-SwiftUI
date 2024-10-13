@@ -9,7 +9,7 @@ import Foundation
 
 
 struct ClubListItem: Identifiable {
-    let id = UUID() // 一意なID
+    let id = UUID()
     let name: String // 部活動名
     let url: String // リンク先URL
     

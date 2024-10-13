@@ -14,6 +14,7 @@ class ClubListsViewModel: ObservableObject {
     @Published var hatoyamaSportsClubs: [ClubListItem] = []
     @Published var hatoyamaAcademicClubs: [ClubListItem] = []
     
+    @Published var searchText: String = "" // 検索
     
     init() {
         loadClubs()
@@ -157,5 +158,12 @@ class ClubListsViewModel: ObservableObject {
             ClubListItem(name: "アニメ・声優研究部", url: ""),
             ClubListItem(name: "競技麻雀研究部", url: "")
         ]
+    }
+    func filteredClubs(for clubs: [ClubListItem]) -> [ClubListItem] {
+        if searchText.isEmpty {
+            return clubs
+        } else {
+            return clubs.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
     }
 }

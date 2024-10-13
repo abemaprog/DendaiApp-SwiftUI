@@ -42,77 +42,114 @@ extension ClubListsView {
             .frame(maxWidth: .infinity)
             .background(Color.cyan)
     }
+    
+    private var searchBar: some View {
+        VStack(alignment: .leading) {
+            Text("部活・サークルの検索")
+                .font(.title3)
+                .bold()
+            
+            HStack {
+                TextField("部活・サークル名を入力", text: $clubListsVM.searchText)
+                    .padding(8)
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 0.4)
+                    )
+            }
+            
+            Spacer().frame(height: 10)
+        }
+    }
+    
     private var senjuClubs: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                //検索バー
+                searchBar
+                
                 // 委員会
                 if !clubListsVM.senjuCommiteeClubs.isEmpty {
-                    Text("委員会")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.senjuCommiteeClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.senjuCommiteeClubs).isEmpty {
+                        Text("委員会")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.senjuCommiteeClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
                 
                 // 体育会各団体
                 if !clubListsVM.senjuSportsClubs.isEmpty {
-                    Text("体育会各団体")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.senjuSportsClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.senjuSportsClubs).isEmpty {
+                        Text("体育会各団体")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.senjuSportsClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
                 
                 // 文化部会団体
                 if !clubListsVM.senjuCultureClubs.isEmpty {
-                    Text("文化部会団体")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.senjuCultureClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.senjuCultureClubs).isEmpty {
+                        Text("文化部会団体")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.senjuCultureClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
                 
                 // 学術研究部会
                 if !clubListsVM.senjuAcademicClubs.isEmpty {
-                    Text("学術研究部会")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.senjuAcademicClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.senjuAcademicClubs).isEmpty {
+                        Text("学術研究部会")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.senjuAcademicClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
                 
                 // 有志団体
                 if !clubListsVM.senjuVolunteerClubs.isEmpty {
-                    Text("有志団体")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.senjuVolunteerClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.senjuVolunteerClubs).isEmpty {
+                        Text("有志団体")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.senjuVolunteerClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
                 
                 // 工学部第二部
                 if !clubListsVM.senjuEngineeringClubs.isEmpty {
-                    Text("工学部第二部")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.senjuEngineeringClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.senjuEngineeringClubs).isEmpty {
+                        Text("工学部第二部")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.senjuEngineeringClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
@@ -124,38 +161,47 @@ extension ClubListsView {
     private var hatoyamaClubs: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                //検索バー
+                searchBar
+                
                 // 委員会
                 if !clubListsVM.hatoyamaCommiteeClubs.isEmpty {
-                    Text("委員会")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.hatoyamaCommiteeClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.hatoyamaCommiteeClubs).isEmpty {
+                        Text("委員会")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.hatoyamaCommiteeClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
                 
                 // 体育会各団体
                 if !clubListsVM.hatoyamaSportsClubs.isEmpty {
-                    Text("体育会各団体")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.hatoyamaSportsClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.hatoyamaSportsClubs).isEmpty {
+                        Text("体育会各団体")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.hatoyamaSportsClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
                 
                 // 学術文化部会
                 if !clubListsVM.hatoyamaAcademicClubs.isEmpty {
-                    Text("学術文化部会")
-                        .font(.title2)
-                        .bold()
-                    Divider()
-                    clubList(clubs: clubListsVM.hatoyamaAcademicClubs)
-                    Divider()
+                    if !clubListsVM.filteredClubs(for: clubListsVM.hatoyamaAcademicClubs).isEmpty {
+                        Text("学術文化部会")
+                            .font(.title2)
+                            .bold()
+                        Divider()
+                        clubList(clubs: clubListsVM.filteredClubs(for: clubListsVM.hatoyamaAcademicClubs))
+                        Divider()
+                    }
                 }
                 
                 Spacer().frame(height: 10)
