@@ -159,6 +159,7 @@ class ClubListsViewModel: ObservableObject {
             ClubListItem(name: "競技麻雀研究部", url: "")
         ]
     }
+    // フィルター
     func filteredClubs(for clubs: [ClubListItem]) -> [ClubListItem] {
         if searchText.isEmpty {
             return clubs

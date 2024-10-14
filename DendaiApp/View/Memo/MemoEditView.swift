@@ -46,7 +46,7 @@ extension MemoEditView {
             .fontWeight(.bold)
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color(.cyan))
+            .background(Color.cyan)
     }
     
     private var saveButton: some View {
