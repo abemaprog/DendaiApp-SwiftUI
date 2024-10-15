@@ -63,6 +63,14 @@ extension ClubListsView {
                             .stroke(Color.gray, lineWidth: 0.4)
                     )
                     .focused($textFieldFocused)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+                            Button("Done") {
+                                textFieldFocused = false //　キーボードを閉じる
+                            }
+                        }
+                    }
             }
             
             Spacer().frame(height: 10)

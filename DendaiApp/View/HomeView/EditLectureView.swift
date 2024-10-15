@@ -2,6 +2,8 @@ import SwiftUI
 
 struct EditLectureView: View {
     @StateObject var homeVM: HomeViewModel
+    @FocusState private var textFieldFocused: Bool
+    
     var selectedDay: String? = nil      // 追加する曜日
     var selectedLecture: HomeItem? = nil // 編集する講義
     
@@ -16,13 +18,6 @@ struct EditLectureView: View {
             header
             // フォーム部分
             form
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("キャンセル") {
-                    dismiss()
-                }
-            }
         }
     }
 }
@@ -46,12 +41,23 @@ extension EditLectureView {
         Form {
             Section(header: Text("講義情報を入力")) {
                 TextField("講義名", text: $lectureName)
+                    .focused($textFieldFocused)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+                            //キーボードを閉じる
+                            Button("Done") {
+                                textFieldFocused = false
+                            }
+                        }
+                    }
                 Picker("時限", selection: $period) {
                     ForEach(1..<8) {
                         Text("\($0)限").tag($0)
                     }
                 }
                 TextField("教室", text: $room)
+                    .focused($textFieldFocused)
             }
             
             // 編集モードの場合、削除ボタンを表示

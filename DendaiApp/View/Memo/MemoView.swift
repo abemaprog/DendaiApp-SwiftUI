@@ -44,6 +44,14 @@ extension MemoView {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.leading)
                 .focused($textFieldFocused)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            textFieldFocused = false // Dismiss the keyboard
+                        }
+                    }
+                }
             
             Button(action: {
                 guard !newMemoContent.isEmpty else { return }

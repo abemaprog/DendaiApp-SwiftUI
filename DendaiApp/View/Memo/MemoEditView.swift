@@ -13,6 +13,8 @@ struct MemoEditView: View {
     @State private var updatedContent = ""
     @Environment(\.dismiss) var dismiss
     
+    @FocusState private var textFieldFocused: Bool
+    
     var body: some View {
         VStack {
             // ヘッダー
@@ -22,6 +24,16 @@ struct MemoEditView: View {
             TextField("メモ内容を編集", text: $updatedContent)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
+                .focused($textFieldFocused)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        //キーボードをとじる
+                        Button("Done") {
+                            textFieldFocused = false
+                        }
+                    }
+                }
             
             // 保存ボタン
             saveButton

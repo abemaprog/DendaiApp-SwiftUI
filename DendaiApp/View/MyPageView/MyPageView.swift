@@ -3,6 +3,7 @@ import SwiftUI
 struct MyPageView: View {
     @StateObject private var myPageVM = MyPageViewModel()
     
+    
     var body: some View {
         NavigationView {
             VStack {
