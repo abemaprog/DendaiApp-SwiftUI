@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EditLectureView: View {
-    @ObservedObject var homeVM: HomeViewModel
+    @StateObject var homeVM: HomeViewModel
     var selectedDay: String? = nil      // 追加する曜日
     var selectedLecture: HomeItem? = nil // 編集する講義
     

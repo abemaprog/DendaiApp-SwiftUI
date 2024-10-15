@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MyPageView: View {
-    @ObservedObject private var myPageVM = MyPageViewModel()
+    @StateObject private var myPageVM = MyPageViewModel()
     
     var body: some View {
         NavigationView {

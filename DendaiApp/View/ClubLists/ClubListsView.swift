@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct ClubListsView: View {
-    @ObservedObject private var clubListsVM = ClubListsViewModel()
+    @StateObject private var clubListsVM = ClubListsViewModel()
     @State private var selectedTab: Int = 0 // 0: 千住, 1: 鳩山
+    @FocusState private var textFieldFocused: Bool
     
     let tabs: [String] = ["千住キャンパス", "鳩山キャンパス"]
     
@@ -24,6 +25,9 @@ struct ClubListsView: View {
                 hatoyamaClubs
                 
             }
+        }
+        .onTapGesture {
+            textFieldFocused = false
         }
     }
 }
@@ -58,6 +62,7 @@ extension ClubListsView {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.gray, lineWidth: 0.4)
                     )
+                    .focused($textFieldFocused)
             }
             
             Spacer().frame(height: 10)

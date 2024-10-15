@@ -4,8 +4,11 @@ struct MemoView: View {
     @StateObject private var memoVM = MemoViewModel()
     @State private var newMemoContent = ""
     
+    @FocusState private var textFieldFocused: Bool
+    
     var body: some View {
         NavigationView {
+            
             VStack {
                 // ヘッダー
                 header
@@ -16,6 +19,7 @@ struct MemoView: View {
                 // メモのリスト表示
                 memoList
             }
+            
         }
     }
 }
@@ -39,6 +43,7 @@ extension MemoView {
             TextField("メモを追加", text: $newMemoContent)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.leading)
+                .focused($textFieldFocused)
             
             Button(action: {
                 guard !newMemoContent.isEmpty else { return }
@@ -52,6 +57,7 @@ extension MemoView {
             .padding(.trailing)
         }
     }
+    
     private var memoList: some View {
         List {
             ForEach(memoVM.memoItems) { memo in
@@ -63,6 +69,7 @@ extension MemoView {
             .onMove(perform: memoVM.moveMemo)     // 並べ替え
             .moveDisabled(false)                 // 常に並べ替えを可能に
         }
+        
         .listStyle(PlainListStyle())
     }
 }

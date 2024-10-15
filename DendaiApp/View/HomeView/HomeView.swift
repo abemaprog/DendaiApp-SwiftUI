@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var homeVM = HomeViewModel()
+    @StateObject var homeVM = HomeViewModel()
     @State private var expandedDays: [String: Bool] = [:]  // 曜日ごとのトグル状態を管理
     @State private var selectedLecture: HomeItem? = nil // 編集する講義
     @State private var showingEditView = false    // 講義追加用モーダルを表示するかどうか

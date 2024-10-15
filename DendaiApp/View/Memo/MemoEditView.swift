@@ -9,8 +9,9 @@ import SwiftUI
 
 struct MemoEditView: View {
     @State var memo: MemoItem
-    @ObservedObject var memoVM: MemoViewModel
+    @StateObject var memoVM: MemoViewModel
     @State private var updatedContent = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -31,7 +32,6 @@ struct MemoEditView: View {
             // 初期値に現在のメモ内容を設定
             updatedContent = memo.content
         }
-        .customBackButton(label: "戻る", color: .black)
     }
 }
 
@@ -51,7 +51,9 @@ extension MemoEditView {
     
     private var saveButton: some View {
         Button(action: {
+            // メモ内容を保存する処理
             memoVM.updateMemo(id: memo.id, newContent: updatedContent)
+            dismiss()  // 保存後、ビューを閉じる
         }) {
             Text("保存")
                 .frame(maxWidth: .infinity)
