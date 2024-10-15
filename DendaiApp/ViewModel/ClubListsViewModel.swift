@@ -89,7 +89,7 @@ class ClubListsViewModel: ObservableObject {
             //学術研究部会
             ClubListItem(name: "アマチュア無線部", url: "https://x.com/JA1YAQ"),
             ClubListItem(name: "オーディオ技術研究部", url: "https://x.com/TDU_Audio"),
-            ClubListItem(name: "自動車制御研究部", url: ""),
+            ClubListItem(name: "自動制御研究部", url: "https://x.com/TDU_AOC"),
             ClubListItem(name: "ソフトウェア研究部", url: "https://x.com/sofken_tdu"),
             ClubListItem(name: "鉄道研究部", url: "https://x.com/tdufe"),
             ClubListItem(name: "電子技術研究部", url: "https://x.com/giken_PR"),

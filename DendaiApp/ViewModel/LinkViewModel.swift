@@ -26,12 +26,14 @@ class LinkViewModel: ObservableObject {
             //　科学技術概論
             LinkItem(title: "科学技術概論ポータルサイト", image: "gear", url: "https://tdu-sc.notion.site/6237e3b95b3f4090aa0ee3f57617e028", color: .gray),
             // Physics-e
-            LinkItem(title: "Physics-e", image: "waveform.path.ecg", url: "https://ptg01.physics-e.com/DENDAI/Physicse/users/", color: .indigo)
+            LinkItem(title: "Physics-e", image: "waveform.path.ecg", url: "https://ptg01.physics-e.com/DENDAI/Physicse/users/", color: .indigo),
         ]
         
         otherLinkItems = [
+            // 電大navi
+            LinkItem(title: "電大navi", image: "location", url: "https://tdu-navi.sg.dendai.ac.jp/", color: .teal),
             // 公式X
-            LinkItem(title: "公式X", image: "bubble.right", url: "https://x.com/TDU_webmaster?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor", color: .gray)
+            LinkItem(title: "公式X", image: "bubble.right", url: "https://x.com/TDU_webmaster?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor", color: .gray),
         ]
     }
 }
