@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct DendaiAppApp: App {
+struct DendaiApp: App {
     @State private var showSplash = true
     
     var body: some Scene {

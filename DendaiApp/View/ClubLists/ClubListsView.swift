@@ -58,11 +58,6 @@ extension ClubListsView {
                     .padding(8)
                     .background(Color.white)
                     .cornerRadius(8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray, lineWidth: 0.4)
-                    )
-                    .focused($textFieldFocused)
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
                             Spacer()
@@ -71,6 +66,11 @@ extension ClubListsView {
                             }
                         }
                     }
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 0.4)
+                    )
+                    .focused($textFieldFocused)
             }
             
             Spacer().frame(height: 10)
