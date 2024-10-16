@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "#ffff00.png",
+      "filename" : "でんコマ.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "#ffff00 1.png",
+      "filename" : "でんコマ 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,7 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "#ffff00 2.png",
+      "filename" : "でんコマ 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
