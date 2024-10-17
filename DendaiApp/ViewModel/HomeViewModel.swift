@@ -27,17 +27,18 @@ class HomeViewModel: ObservableObject {
     }
     
     // 講義を追加
-    func addLecture(lectureName: String, period: Int, room: String, day: String) {
-        let newLecture = HomeItem(lectureName: lectureName, period: period, room: room, day: day)
+    func addLecture(lectureName: String, period: Int, room: String, day: String, time: String) {
+        let newLecture = HomeItem(lectureName: lectureName, period: period, room: room, day: day, time: time)
         lectureItems.append(newLecture)
     }
     
     // 講義を編集
-    func editLecture(item: HomeItem, lectureName: String, period: Int, room: String) {
+    func editLecture(item: HomeItem, lectureName: String, period: Int, room: String, time: String) {
         if let index = lectureItems.firstIndex(where: { $0.id == item.id }) {
             lectureItems[index].lectureName = lectureName
             lectureItems[index].period = period
             lectureItems[index].room = room
+            lectureItems[index].time = time
         }
     }
     

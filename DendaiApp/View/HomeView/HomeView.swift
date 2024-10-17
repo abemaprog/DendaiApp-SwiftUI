@@ -120,7 +120,7 @@ extension HomeView {
         Button(action: {
             // 状態をリセット
             selectedLecture = nil    // 新規追加用にリセット
-            selectedDay = day        // どの曜日に追加するかを指定
+            selectedDay = day        // どの曜日に追加するか
             showingEditView = true   // モーダルを開く
         }) {
             VStack {

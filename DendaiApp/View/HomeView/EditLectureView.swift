@@ -11,6 +11,7 @@ struct EditLectureView: View {
     @State private var lectureName: String = ""
     @State private var period: Int = 1
     @State private var room: String = ""
+    @State private var time: String = ""
     
     var body: some View {
         VStack(spacing: 0) {
@@ -58,6 +59,9 @@ extension EditLectureView {
                 }
                 TextField("教室", text: $room)
                     .focused($textFieldFocused)
+                
+                TextField("時間を追加（例：9:20 - 11:00）", text: $time)
+                    .focused($textFieldFocused)
             }
             
             // 編集モードの場合、削除ボタンを表示
@@ -75,10 +79,10 @@ extension EditLectureView {
             Button("保存") {
                 if let lecture = selectedLecture {
                     // 既存の講義を編集
-                    homeVM.editLecture(item: lecture, lectureName: lectureName, period: period, room: room)
+                    homeVM.editLecture(item: lecture, lectureName: lectureName, period: period, room: room, time: time)
                 } else if let day = selectedDay {
                     // 新規講義を追加
-                    homeVM.addLecture(lectureName: lectureName, period: period, room: room, day: day)
+                    homeVM.addLecture(lectureName: lectureName, period: period, room: room, day: day, time: time)
                 }
                 dismiss()
             }
@@ -90,6 +94,7 @@ extension EditLectureView {
                 lectureName = lecture.lectureName
                 period = lecture.period
                 room = lecture.room
+                time = time
             }
         }
     }

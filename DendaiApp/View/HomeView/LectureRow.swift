@@ -25,6 +25,9 @@ struct LectureRow: View {
             }
             
             Spacer()
+            Text("\(lecture.time)")
+                .font(.subheadline)
+            
         }
         .padding()
         .background(Color.white)
@@ -34,5 +37,5 @@ struct LectureRow: View {
 }
 
 #Preview {
-    LectureRow(lecture: HomeItem(lectureName: "数学", period: 1, room: "A101", day: "月"))
+    LectureRow(lecture: HomeItem(lectureName: "数学", period: 1, room: "A101", day: "月", time: "9:20 - 11:00"))
 }

@@ -151,7 +151,7 @@ class ClubListsViewModel: ObservableObject {
             ClubListItem(name: "フォークソング部", url: "https://x.com/tdu_folk"),
             ClubListItem(name: "ロボット研究会部", url: "https://x.com/tdu_ssr"),
             ClubListItem(name: "模型部", url: "https://x.com/TDUmodelingclubm"),
-            ClubListItem(name: "曲作りサークル部", url: ""),
+            ClubListItem(name: "曲つくりサークル部", url: ""),
             ClubListItem(name: "鉄道研究部", url: "https://x.com/TDU_TEKKEN"),
             ClubListItem(name: "漫画研究部", url: ""),
             ClubListItem(name: "ヒューマノイド研究部", url: ""),
