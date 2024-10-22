@@ -15,5 +15,3 @@ struct HomeItem: Identifiable, Codable {
     var day: String  // 曜日（"月曜日" など）
     var time: String  // 講義の開始時間
 }
-
-

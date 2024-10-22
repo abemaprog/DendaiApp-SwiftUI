@@ -46,14 +46,4 @@ class HomeViewModel: ObservableObject {
     func deleteLecture(item: HomeItem) {
         lectureItems.removeAll { $0.id == item.id }
     }
-    
-    // 講義の並び替え
-    func moveLecture(from source: IndexSet, to destination: Int, forDay day: String) {
-        var filteredLectures = lectureItems.filter { $0.day == day }
-        filteredLectures.move(fromOffsets: source, toOffset: destination)
-        
-        // 並び替え後のデータを再配置
-        let nonFilteredLectures = lectureItems.filter { $0.day != day }
-        lectureItems = nonFilteredLectures + filteredLectures
-    }
 }
