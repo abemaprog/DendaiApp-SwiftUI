@@ -15,7 +15,7 @@ struct EditLectureView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // カスタムヘッダー
+            // ヘッダー
             header
             // フォーム部分
             form
@@ -94,7 +94,7 @@ extension EditLectureView {
                 lectureName = lecture.lectureName
                 period = lecture.period
                 room = lecture.room
-                time = time
+                time = lecture.time
             }
         }
     }
