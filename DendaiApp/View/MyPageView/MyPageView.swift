@@ -8,7 +8,7 @@ struct MyPageView: View {
         NavigationView {
             VStack {
                 // ヘッダー
-                header
+                CustomHeader(label: "MyPage")
                 // 設定リスト
                 settingList
             }
@@ -22,16 +22,6 @@ struct MyPageView: View {
 }
 
 extension MyPageView {
-    // ヘッダー
-    private var header: some View {
-        Text("MyPage")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.cyan)
-    }
-    
     // 設定リストをSectionで表示
     private var settingList: some View {
         List {

@@ -7,7 +7,7 @@ struct LinkView: View {
     var body: some View {
         VStack {
             // ヘッダー
-            header
+            CustomHeader(label: "Links")
             // サイトを表示
             displayScroll
         }
@@ -19,15 +19,6 @@ struct LinkView: View {
 }
 
 extension LinkView {
-    //ヘッダー
-    private var header: some View {
-        Text("Links")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.cyan)
-    }
     //サイト表示をスクロール
     private var displayScroll: some View {
         ScrollView {

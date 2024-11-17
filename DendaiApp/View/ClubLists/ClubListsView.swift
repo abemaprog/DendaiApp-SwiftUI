@@ -10,7 +10,7 @@ struct ClubListsView: View {
     var body: some View {
         VStack(spacing: 0) {
             // ヘッダー
-            header
+            CustomHeader(label: "ClubLists")
             
             // カスタムタブ (千住キャンパス・鳩山キャンパス)
             TopTabView(list: tabs, selectedTab: $selectedTab)
@@ -37,16 +37,6 @@ struct ClubListsView: View {
 }
 
 extension ClubListsView {
-    private var header: some View {
-        // ヘッダー
-        Text("ClubLists")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.cyan)
-    }
-    
     private var searchBar: some View {
         VStack(alignment: .leading) {
             Text("部活・サークルの検索")

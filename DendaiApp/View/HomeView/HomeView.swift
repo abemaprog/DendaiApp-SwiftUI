@@ -10,24 +10,31 @@ struct HomeView: View {
     var body: some View {
         VStack(spacing: 0) {
             // ヘッダー
-            header
+            CustomHeader(label: "Home")
             
             // テキスト「時間割」の表示
             displayTitle
             
             // 各曜日ごとの講義を表示する
             displayLecture
+            // モーダルとしてEditLectureViewを表示
+                .sheet(isPresented: $showingEditView) {
+                    if let lectureToEdit = selectedLecture {
+                        // 編集用モーダル表示
+                        EditLectureView(homeVM: homeVM, selectedLecture: lectureToEdit)
+                    } else if let day = selectedDay {
+                        // 新規追加用モーダル表示
+                        EditLectureView(homeVM: homeVM, selectedDay: day)
+                    } else {
+                        ProgressView()
+                            .padding()
+                        Text("別のボタンを選択してから、\n再度お試しください。")
+                            .padding()
+                            .font(.title3)
+                    }
+                }
         }
-        // モーダルとしてEditLectureViewを表示
-        .sheet(isPresented: $showingEditView) {
-            if let lectureToEdit = selectedLecture {
-                // 編集用モーダル表示
-                EditLectureView(homeVM: homeVM, selectedLecture: lectureToEdit)
-            } else if let day = selectedDay {
-                // 新規追加用モーダル表示
-                EditLectureView(homeVM: homeVM, selectedDay: day)
-            }
-        }
+        
     }
 }
 
@@ -36,15 +43,6 @@ struct HomeView: View {
 }
 
 extension HomeView {
-    // ヘッダー
-    private var header: some View {
-        Text("Home")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.cyan)
-    }
     // テキスト「時間割の表示」
     private var displayTitle: some View {
         VStack(alignment: .leading) {

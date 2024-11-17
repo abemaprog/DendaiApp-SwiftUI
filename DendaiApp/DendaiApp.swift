@@ -13,19 +13,7 @@ struct DendaiApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if showSplash {
-                SplashView()
-                    .onAppear {
-                        // 2.5秒後にスプラッシュ画面を非表示にして ContentView に遷移
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                            withAnimation {
-                                showSplash = false
-                            }
-                        }
-                    }
-            } else {
-                ContentView()
-            }
+            SplashView()
         }
     }
 }

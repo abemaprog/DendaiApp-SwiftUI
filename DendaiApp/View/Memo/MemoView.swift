@@ -11,7 +11,7 @@ struct MemoView: View {
             
             VStack {
                 // ヘッダー
-                header
+                CustomHeader(label: "Memo")
                 Spacer().frame(height: 20)
                 // メモの追加フォーム
                 addMemo
@@ -29,15 +29,6 @@ struct MemoView: View {
 }
 
 extension MemoView {
-    private var header: some View {
-        Text("Memo")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.cyan)
-    }
-    
     private var addMemo: some View {
         HStack {
             TextField("メモを追加", text: $newMemoContent)
