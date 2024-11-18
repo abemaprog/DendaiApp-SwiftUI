@@ -41,7 +41,7 @@ struct SplashView: View {
                                 showProgress = true
                                 
                                 // ProgressViewを1.5秒表示後にContentViewに遷移
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                     showProgress = false
                                 }
                             }

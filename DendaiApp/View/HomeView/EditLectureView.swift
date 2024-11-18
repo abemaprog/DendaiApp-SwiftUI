@@ -13,6 +13,15 @@ struct EditLectureView: View {
     @State private var room: String = ""
     @State private var time: String = ""
     
+    @State private var selected: Int = 0
+    
+    let times: [(String, [String])] = [
+        ("学部", ["9:20 - 11:00", "11:10 - 12:50", "13:40 - 15:20", "15:30 - 17:10", "17:20 - 19:00"]),
+        ("大学院", ["9:20 - 11:00", "11:10 - 12:50", "13:40 - 15:20", "15:30 - 17:10", "18:00 - 19:40", "19:50 - 21:30"]),
+        ("工学部第二部", ["9:00 - 10:30", "10:40 - 12:10", "13:10 - 14:40", "14:50 - 16:20", "16:30 - 18:00", "18:10 - 19:40", "19:50 - 21:20"]),
+        
+    ]
+    
     var body: some View {
         VStack(spacing: 0) {
             // ヘッダー
@@ -57,11 +66,25 @@ extension EditLectureView {
                         Text("\($0)限").tag($0)
                     }
                 }
+                .pickerStyle(MenuPickerStyle())
+                
                 TextField("教室", text: $room)
                     .focused($textFieldFocused)
                 
-                TextField("時間を追加（例：9:20 - 11:00）", text: $time)
-                    .focused($textFieldFocused)
+                Picker("時間", selection: $time) {
+                    ForEach(times, id: \.0) { category, timeList in
+                        // セクションラベル（タップ不可）
+                        Text(category)
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                            .selectionDisabled(true)
+                        // 各時間を表示
+                        ForEach(timeList, id: \.self) { time in
+                            Text(time).tag(time)
+                        }
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
             }
             
             Button("保存") {
