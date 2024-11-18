@@ -64,6 +64,19 @@ extension EditLectureView {
                     .focused($textFieldFocused)
             }
             
+            Button("保存") {
+                if let lecture = selectedLecture {
+                    // 既存の講義を編集
+                    homeVM.editLecture(item: lecture, lectureName: lectureName, period: period, room: room, time: time)
+                } else if let day = selectedDay {
+                    // 新規講義を追加
+                    homeVM.addLecture(lectureName: lectureName, period: period, room: room, day: day, time: time)
+                }
+                dismiss()
+            }
+            .foregroundStyle(.blue)
+            
+            
             // 編集モードの場合、削除ボタンを表示
             if let lecture = selectedLecture {
                 Section {
@@ -75,16 +88,6 @@ extension EditLectureView {
                             .foregroundColor(.red)
                     }
                 }
-            }
-            Button("保存") {
-                if let lecture = selectedLecture {
-                    // 既存の講義を編集
-                    homeVM.editLecture(item: lecture, lectureName: lectureName, period: period, room: room, time: time)
-                } else if let day = selectedDay {
-                    // 新規講義を追加
-                    homeVM.addLecture(lectureName: lectureName, period: period, room: room, day: day, time: time)
-                }
-                dismiss()
             }
         }
         .background(Color.clear)

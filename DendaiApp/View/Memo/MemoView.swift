@@ -7,7 +7,7 @@ struct MemoView: View {
     @FocusState private var textFieldFocused: Bool
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             
             VStack {
                 // ヘッダー
@@ -21,6 +21,7 @@ struct MemoView: View {
             }
             
         }
+        .tint(.black)
     }
 }
 

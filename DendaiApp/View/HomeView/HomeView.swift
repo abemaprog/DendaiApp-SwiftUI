@@ -4,37 +4,22 @@ struct HomeView: View {
     @StateObject var homeVM = HomeViewModel()
     @State private var expandedDays: [String: Bool] = [:]  // 曜日ごとのトグル状態を管理
     @State private var selectedLecture: HomeItem? = nil // 編集する講義
-    @State private var showingEditView = false    // 講義追加用モーダルを表示するかどうか
     @State private var selectedDay: String? = nil // 講義を追加する曜日
     
     var body: some View {
-        VStack(spacing: 0) {
-            // ヘッダー
-            CustomHeader(label: "Home")
-            
-            // テキスト「時間割」の表示
-            displayTitle
-            
-            // 各曜日ごとの講義を表示する
-            displayLecture
-            // モーダルとしてEditLectureViewを表示
-                .sheet(isPresented: $showingEditView) {
-                    if let lectureToEdit = selectedLecture {
-                        // 編集用モーダル表示
-                        EditLectureView(homeVM: homeVM, selectedLecture: lectureToEdit)
-                    } else if let day = selectedDay {
-                        // 新規追加用モーダル表示
-                        EditLectureView(homeVM: homeVM, selectedDay: day)
-                    } else {
-                        ProgressView()
-                            .padding()
-                        Text("別のボタンを選択してから、\n再度お試しください。")
-                            .padding()
-                            .font(.title3)
-                    }
-                }
+        NavigationStack {
+            VStack(spacing: 0) {
+                // ヘッダー
+                CustomHeader(label: "Home")
+                
+                // テキスト「時間割」の表示
+                displayTitle
+                
+                // 各曜日ごとの講義を表示する
+                displayLecture
+            }
         }
-        
+        .tint(.black)
     }
 }
 
@@ -46,18 +31,12 @@ extension HomeView {
     // テキスト「時間割の表示」
     private var displayTitle: some View {
         VStack(alignment: .leading) {
-            HStack {
                 Text("時間割")
                     .font(.title3)
                     .bold()
                     .padding()
-                Spacer()
-                //学校と交渉してAPIを用意してもらえるか（公認アプリにしてもらう）
-                //                    Image(systemName: "bell.fill")
-                //                        .padding()
-            }
+                
             Divider()
-            
             Spacer().frame(height:10)
         }
     }
@@ -75,11 +54,9 @@ extension HomeView {
                             .filter { $0.day == day }   // 曜日でフィルタ
                             .sorted { $0.period < $1.period }  // 時限で昇順にソート
                         ) { lecture in
-                            LectureRow(lecture: lecture)
-                                .onTapGesture {
-                                    selectedLecture = lecture // 編集する講義を設定
-                                    showingEditView = true    // 編集モーダルを表示
-                                }
+                            NavigationLink(destination: EditLectureView(homeVM: homeVM, selectedLecture: lecture)) {
+                                LectureRow(lecture: lecture)
+                            }
                         }
                         .padding(.horizontal)
                         
@@ -115,12 +92,7 @@ extension HomeView {
     
     // 追加ボタンを表示
     private func addLectureButton(for day: String) -> some View {
-        Button(action: {
-            // 状態をリセット
-            selectedLecture = nil    // 新規追加用にリセット
-            selectedDay = day        // どの曜日に追加するか
-            showingEditView = true   // モーダルを開く
-        }) {
+        NavigationLink(destination: EditLectureView(homeVM: homeVM, selectedDay: day)) {
             VStack {
                 HStack {
                     Spacer()
@@ -135,7 +107,6 @@ extension HomeView {
             .padding()
         }
     }
-    
     // 曜日のリスト
     private var weekdays: [String] {
         ["月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]

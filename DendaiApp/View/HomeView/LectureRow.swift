@@ -14,11 +14,13 @@ struct LectureRow: View {
         HStack {
             Text("\(lecture.period)限")
                 .font(.headline)
+                .foregroundColor(.black)
                 .frame(width: 60, alignment: .leading)
             
             VStack(alignment: .leading) {
                 Text(lecture.lectureName)
                     .font(.subheadline)
+                    .foregroundColor(.black)
                 Text("教室: \(lecture.room)")
                     .font(.caption)
                     .foregroundColor(.black)
@@ -27,6 +29,7 @@ struct LectureRow: View {
             Spacer()
             Text("\(lecture.time)")
                 .font(.subheadline)
+                .foregroundColor(.black)
             
         }
         .padding()
