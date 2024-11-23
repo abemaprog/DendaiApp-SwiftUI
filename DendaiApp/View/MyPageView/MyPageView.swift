@@ -1,19 +1,17 @@
 import SwiftUI
+import WebUI
 
 struct MyPageView: View {
-    @StateObject private var myPageVM = MyPageViewModel()
-    
-    
     var body: some View {
-        NavigationView {
-            VStack {
-                // ヘッダー
-                CustomHeader(label: "MyPage")
-                // 設定リスト
-                settingList
-            }
-            .background(Color(.systemGray6))
+        
+        VStack {
+            // ヘッダー
+            CustomHeader(label: "MyPage")
+            // 設定リスト
+            settingList
         }
+        .background(Color(.systemGray6))
+        
     }
 }
 
@@ -25,57 +23,28 @@ extension MyPageView {
     // 設定リストをSectionで表示
     private var settingList: some View {
         List {
-            // フィードバックセクション
-            Section(header: Text("フィードバック")) {
-                NavigationLink(destination: WebView(url: URL(string: myPageVM.pageItem.contactURL)!)
-                    .navigationTitle("お問い合わせ")) {
-                        HStack {
-                            Image(systemName: "envelope.fill")
-                                .foregroundColor(.blue)
-                            Text("お問い合わせ")
-                        }
+            Section("フィードバック") {
+                //お問い合わせ
+                WebSection(iconname: "envelope.fill", iconColor: .blue, title: "お問い合わせ", url: URL(string: "https://forms.gle/CeYvvMUhhJLCnKxD8")!)
+                // 部活・サークル掲載
+                WebSection(iconname: "megaphone.fill", iconColor: .orange, title: "部活・サークル掲載希望", url: URL(string: "https://forms.gle/iBdRt1kPfWqgHbQu9")!)
+                // レビュー
+                Link(destination: URL(string: "https://apps.apple.com/jp/app/%E9%9B%BB%E5%A4%A7%E3%82%A2%E3%83%97%E3%83%AA/id6736813745")!) {
+                    HStack {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                        Text("レビューのお願い")
+                            .foregroundStyle(.black)
                     }
-                NavigationLink(destination: WebView(url: URL(string: myPageVM.pageItem.displayCircleURL)!)
-                    .navigationTitle("部活・サークル掲載希望")) {
-                        HStack {
-                            Image(systemName: "megaphone.fill")
-                                .foregroundColor(.orange)
-                                .rotationEffect(.degrees(-15))
-                            Text("部活・サークル掲載希望")
-                        }
-                    }
-                Link(destination: URL(string: myPageVM.pageItem.reviewURL)!) {
-                        HStack {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
-                            Text("レビューのお願い")
-                        }
-                    }
-            }
-            
-            // アプリ情報セクション
-            Section(header: Text("アプリ情報")) {
-                HStack {
-                    Image(systemName: "info.circle.fill")
-                        .foregroundColor(.green)
-                    Text("バージョン：\(appVersion)")
                 }
-                NavigationLink(destination: WebView(url: URL(string: myPageVM.pageItem.privacyPolicyURL)!)
-                    .navigationTitle("プライバシーポリシー")) {
-                        HStack {
-                            Image(systemName: "shield.fill")
-                                .foregroundColor(.purple)
-                            Text("プライバシーポリシー")
-                        }
-                    }
-                NavigationLink(destination: WebView(url: URL(string: myPageVM.pageItem.termsOfServiceURL)!)
-                    .navigationTitle("利用規約")) {
-                        HStack {
-                            Image(systemName: "doc.text.fill")
-                                .foregroundColor(.gray)
-                            Text("利用規約")
-                        }
-                    }
+            }
+            Section("アプリ情報") {
+                // バージョン情報
+                TextSection(iconname: "info.circle.fill", iconColor: .green, title: "バージョン", subtitle: "\(appVersion)")
+                // プライバシーポリシー
+                WebSection(iconname: "shield.fill", iconColor: .purple, title: "プライバシーポリシー", url: URL(string: "https://docs.google.com/document/d/e/2PACX-1vSU7JrgmGIqc0YmqpyD2lXylIps2oDOGW55MqOWX-HlZ_zcbfVzDLoBLw_MikXFpTFI6XWg3L_20iF_/pub")!)
+                // 利用規約
+                WebSection(iconname: "doc.text.fill", iconColor: .gray, title: "利用規約", url: URL(string: "https://docs.google.com/document/d/e/2PACX-1vSFlItgcCX92pdjn1H0K_Gl8zQfnnJVtDLjcLkI1NbLTW1nk_1B7thTL-K5aC5Wf6ZOARNDmN1_f5dw/pub")!)
             }
         }
     }

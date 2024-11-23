@@ -11,7 +11,6 @@
 		15E949112CE9B80B00B1D84B /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948E92CE9B80B00B1D84B /* HomeItem.swift */; };
 		15E949122CE9B80B00B1D84B /* LinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948EA2CE9B80B00B1D84B /* LinkItem.swift */; };
 		15E949132CE9B80B00B1D84B /* MemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948EB2CE9B80B00B1D84B /* MemoItem.swift */; };
-		15E949142CE9B80B00B1D84B /* MyPageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948EC2CE9B80B00B1D84B /* MyPageItem.swift */; };
 		15E949152CE9B80B00B1D84B /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F02CE9B80B00B1D84B /* CustomBackButton.swift */; };
 		15E949162CE9B80B00B1D84B /* ClubListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F22CE9B80B00B1D84B /* ClubListsView.swift */; };
 		15E949172CE9B80B00B1D84B /* TopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F32CE9B80B00B1D84B /* TopTabView.swift */; };
@@ -23,19 +22,20 @@
 		15E9491D2CE9B80B00B1D84B /* MemoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948FD2CE9B80B00B1D84B /* MemoEditView.swift */; };
 		15E9491E2CE9B80B00B1D84B /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948FE2CE9B80B00B1D84B /* MemoView.swift */; };
 		15E9491F2CE9B80B00B1D84B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949002CE9B80B00B1D84B /* MyPageView.swift */; };
-		15E949202CE9B80B00B1D84B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949012CE9B80B00B1D84B /* WebView.swift */; };
 		15E949212CE9B80B00B1D84B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949032CE9B80B00B1D84B /* ContentView.swift */; };
 		15E949222CE9B80B00B1D84B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949042CE9B80B00B1D84B /* SplashView.swift */; };
 		15E949232CE9B80B00B1D84B /* ClubListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949062CE9B80B00B1D84B /* ClubListsViewModel.swift */; };
 		15E949242CE9B80B00B1D84B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949072CE9B80B00B1D84B /* HomeViewModel.swift */; };
 		15E949252CE9B80B00B1D84B /* LinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949082CE9B80B00B1D84B /* LinkViewModel.swift */; };
 		15E949262CE9B80B00B1D84B /* MemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949092CE9B80B00B1D84B /* MemoViewModel.swift */; };
-		15E949272CE9B80B00B1D84B /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9490A2CE9B80B00B1D84B /* MyPageViewModel.swift */; };
 		15E949282CE9B80B00B1D84B /* DendaiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9490D2CE9B80B00B1D84B /* DendaiApp.swift */; };
 		15E949292CE9B80B00B1D84B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E948EE2CE9B80B00B1D84B /* Preview Assets.xcassets */; };
 		15E9492A2CE9B80B00B1D84B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E9490C2CE9B80B00B1D84B /* Assets.xcassets */; };
 		15E9492B2CE9B80B00B1D84B /* Task.txt in Resources */ = {isa = PBXBuildFile; fileRef = 15E9490E2CE9B80B00B1D84B /* Task.txt */; };
 		15E9492D2CE9B8F900B1D84B /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9492C2CE9B8F900B1D84B /* CustomHeader.swift */; };
+		15E9498F2CF1A9CD00B1D84B /* WebUI in Frameworks */ = {isa = PBXBuildFile; productRef = 15E9498E2CF1A9CD00B1D84B /* WebUI */; };
+		15E949912CF1AA5800B1D84B /* WebSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949902CF1AA5700B1D84B /* WebSection.swift */; };
+		15E949932CF1CEC000B1D84B /* TextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949922CF1CEC000B1D84B /* TextSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +44,6 @@
 		15E948E92CE9B80B00B1D84B /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
 		15E948EA2CE9B80B00B1D84B /* LinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItem.swift; sourceTree = "<group>"; };
 		15E948EB2CE9B80B00B1D84B /* MemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoItem.swift; sourceTree = "<group>"; };
-		15E948EC2CE9B80B00B1D84B /* MyPageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageItem.swift; sourceTree = "<group>"; };
 		15E948EE2CE9B80B00B1D84B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15E948F02CE9B80B00B1D84B /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		15E948F22CE9B80B00B1D84B /* ClubListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListsView.swift; sourceTree = "<group>"; };
@@ -57,18 +56,18 @@
 		15E948FD2CE9B80B00B1D84B /* MemoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoEditView.swift; sourceTree = "<group>"; };
 		15E948FE2CE9B80B00B1D84B /* MemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoView.swift; sourceTree = "<group>"; };
 		15E949002CE9B80B00B1D84B /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
-		15E949012CE9B80B00B1D84B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		15E949032CE9B80B00B1D84B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		15E949042CE9B80B00B1D84B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		15E949062CE9B80B00B1D84B /* ClubListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListsViewModel.swift; sourceTree = "<group>"; };
 		15E949072CE9B80B00B1D84B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		15E949082CE9B80B00B1D84B /* LinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewModel.swift; sourceTree = "<group>"; };
 		15E949092CE9B80B00B1D84B /* MemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewModel.swift; sourceTree = "<group>"; };
-		15E9490A2CE9B80B00B1D84B /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		15E9490C2CE9B80B00B1D84B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15E9490D2CE9B80B00B1D84B /* DendaiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DendaiApp.swift; sourceTree = "<group>"; };
 		15E9490E2CE9B80B00B1D84B /* Task.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Task.txt; sourceTree = "<group>"; };
 		15E9492C2CE9B8F900B1D84B /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
+		15E949902CF1AA5700B1D84B /* WebSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSection.swift; sourceTree = "<group>"; };
+		15E949922CF1CEC000B1D84B /* TextSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E9498F2CF1A9CD00B1D84B /* WebUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +105,6 @@
 				15E948E92CE9B80B00B1D84B /* HomeItem.swift */,
 				15E948EA2CE9B80B00B1D84B /* LinkItem.swift */,
 				15E948EB2CE9B80B00B1D84B /* MemoItem.swift */,
-				15E948EC2CE9B80B00B1D84B /* MyPageItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				15E9492C2CE9B8F900B1D84B /* CustomHeader.swift */,
+				15E949902CF1AA5700B1D84B /* WebSection.swift */,
+				15E949922CF1CEC000B1D84B /* TextSection.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -175,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				15E949002CE9B80B00B1D84B /* MyPageView.swift */,
-				15E949012CE9B80B00B1D84B /* WebView.swift */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";
@@ -200,7 +200,6 @@
 				15E949072CE9B80B00B1D84B /* HomeViewModel.swift */,
 				15E949082CE9B80B00B1D84B /* LinkViewModel.swift */,
 				15E949092CE9B80B00B1D84B /* MemoViewModel.swift */,
-				15E9490A2CE9B80B00B1D84B /* MyPageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -239,6 +238,7 @@
 			);
 			name = DendaiApp;
 			packageProductDependencies = (
+				15E9498E2CF1A9CD00B1D84B /* WebUI */,
 			);
 			productName = DendaiApp;
 			productReference = 15C351472CB572FD00B1F799 /* DendaiApp.app */;
@@ -268,6 +268,9 @@
 			);
 			mainGroup = 15C3513E2CB572FD00B1F799;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				15E9498D2CF1A9CD00B1D84B /* XCRemoteSwiftPackageReference "WebUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 15C351482CB572FD00B1F799 /* Products */;
 			projectDirPath = "";
@@ -300,7 +303,6 @@
 				15E949112CE9B80B00B1D84B /* HomeItem.swift in Sources */,
 				15E949122CE9B80B00B1D84B /* LinkItem.swift in Sources */,
 				15E949132CE9B80B00B1D84B /* MemoItem.swift in Sources */,
-				15E949142CE9B80B00B1D84B /* MyPageItem.swift in Sources */,
 				15E949152CE9B80B00B1D84B /* CustomBackButton.swift in Sources */,
 				15E949162CE9B80B00B1D84B /* ClubListsView.swift in Sources */,
 				15E949172CE9B80B00B1D84B /* TopTabView.swift in Sources */,
@@ -312,14 +314,14 @@
 				15E9491D2CE9B80B00B1D84B /* MemoEditView.swift in Sources */,
 				15E9491E2CE9B80B00B1D84B /* MemoView.swift in Sources */,
 				15E9491F2CE9B80B00B1D84B /* MyPageView.swift in Sources */,
-				15E949202CE9B80B00B1D84B /* WebView.swift in Sources */,
 				15E949212CE9B80B00B1D84B /* ContentView.swift in Sources */,
 				15E949222CE9B80B00B1D84B /* SplashView.swift in Sources */,
 				15E949232CE9B80B00B1D84B /* ClubListsViewModel.swift in Sources */,
+				15E949912CF1AA5800B1D84B /* WebSection.swift in Sources */,
 				15E949242CE9B80B00B1D84B /* HomeViewModel.swift in Sources */,
+				15E949932CF1CEC000B1D84B /* TextSection.swift in Sources */,
 				15E949252CE9B80B00B1D84B /* LinkViewModel.swift in Sources */,
 				15E949262CE9B80B00B1D84B /* MemoViewModel.swift in Sources */,
-				15E949272CE9B80B00B1D84B /* MyPageViewModel.swift in Sources */,
 				15E949282CE9B80B00B1D84B /* DendaiApp.swift in Sources */,
 				15E9492D2CE9B8F900B1D84B /* CustomHeader.swift in Sources */,
 			);
@@ -535,6 +537,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15E9498D2CF1A9CD00B1D84B /* XCRemoteSwiftPackageReference "WebUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cybozu/WebUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15E9498E2CF1A9CD00B1D84B /* WebUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15E9498D2CF1A9CD00B1D84B /* XCRemoteSwiftPackageReference "WebUI" */;
+			productName = WebUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 15C3513F2CB572FD00B1F799 /* Project object */;
 }
