@@ -38,7 +38,16 @@ struct WebSection: View {
             }
         }
         .sheet(isPresented: $isWebPresented) {
-            WebView(request: URLRequest(url: url))
+            NavigationStack {
+                WebView(request: URLRequest(url: url))
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button("閉じる") {
+                                isWebPresented = false
+                            }
+                        }
+                    }
+            }
         }
     }
 }

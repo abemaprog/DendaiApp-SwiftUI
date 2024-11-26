@@ -8,7 +8,6 @@ struct MemoView: View {
     
     var body: some View {
         NavigationStack {
-            
             VStack {
                 // ヘッダー
                 CustomHeader(label: "Memo")
@@ -19,7 +18,6 @@ struct MemoView: View {
                 // メモのリスト表示
                 memoList
             }
-            
         }
         .tint(.black)
     }
@@ -64,6 +62,7 @@ extension MemoView {
                 NavigationLink(destination: MemoEditView(memo: memo, memoVM: memoVM)) {
                     Text(memo.content)
                 }
+                
             }
             .onDelete(perform: memoVM.deleteMemo) // スワイプで削除
             .onMove(perform: memoVM.moveMemo)     // 並べ替え
