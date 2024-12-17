@@ -16,7 +16,6 @@
 		15E949172CE9B80B00B1D84B /* TopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F32CE9B80B00B1D84B /* TopTabView.swift */; };
 		15E949182CE9B80B00B1D84B /* EditLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F62CE9B80B00B1D84B /* EditLectureView.swift */; };
 		15E949192CE9B80B00B1D84B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F72CE9B80B00B1D84B /* HomeView.swift */; };
-		15E9491A2CE9B80B00B1D84B /* LectureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F82CE9B80B00B1D84B /* LectureRow.swift */; };
 		15E9491B2CE9B80B00B1D84B /* LinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948FA2CE9B80B00B1D84B /* LinkRow.swift */; };
 		15E9491C2CE9B80B00B1D84B /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948FB2CE9B80B00B1D84B /* LinkView.swift */; };
 		15E9491D2CE9B80B00B1D84B /* MemoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948FD2CE9B80B00B1D84B /* MemoEditView.swift */; };
@@ -36,6 +35,8 @@
 		15E9498F2CF1A9CD00B1D84B /* WebUI in Frameworks */ = {isa = PBXBuildFile; productRef = 15E9498E2CF1A9CD00B1D84B /* WebUI */; };
 		15E949912CF1AA5800B1D84B /* WebSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949902CF1AA5700B1D84B /* WebSection.swift */; };
 		15E949932CF1CEC000B1D84B /* TextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949922CF1CEC000B1D84B /* TextSection.swift */; };
+		15E949E52CFC5F9C00B1D84B /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949E42CFC5F9C00B1D84B /* Weekday.swift */; };
+		15E949E72CFC609700B1D84B /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949E62CFC609700B1D84B /* TimeTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +51,6 @@
 		15E948F32CE9B80B00B1D84B /* TopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabView.swift; sourceTree = "<group>"; };
 		15E948F62CE9B80B00B1D84B /* EditLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLectureView.swift; sourceTree = "<group>"; };
 		15E948F72CE9B80B00B1D84B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		15E948F82CE9B80B00B1D84B /* LectureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureRow.swift; sourceTree = "<group>"; };
 		15E948FA2CE9B80B00B1D84B /* LinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRow.swift; sourceTree = "<group>"; };
 		15E948FB2CE9B80B00B1D84B /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		15E948FD2CE9B80B00B1D84B /* MemoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoEditView.swift; sourceTree = "<group>"; };
@@ -68,6 +68,8 @@
 		15E9492C2CE9B8F900B1D84B /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		15E949902CF1AA5700B1D84B /* WebSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSection.swift; sourceTree = "<group>"; };
 		15E949922CF1CEC000B1D84B /* TextSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSection.swift; sourceTree = "<group>"; };
+		15E949E42CFC5F9C00B1D84B /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		15E949E62CFC609700B1D84B /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,9 +149,9 @@
 		15E948F92CE9B80B00B1D84B /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				15E948F62CE9B80B00B1D84B /* EditLectureView.swift */,
 				15E948F72CE9B80B00B1D84B /* HomeView.swift */,
-				15E948F82CE9B80B00B1D84B /* LectureRow.swift */,
+				15E948F62CE9B80B00B1D84B /* EditLectureView.swift */,
+				15E949E32CFC5F0F00B1D84B /* Components */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -219,6 +221,15 @@
 				15E9490E2CE9B80B00B1D84B /* Task.txt */,
 			);
 			path = DendaiApp;
+			sourceTree = "<group>";
+		};
+		15E949E32CFC5F0F00B1D84B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				15E949E42CFC5F9C00B1D84B /* Weekday.swift */,
+				15E949E62CFC609700B1D84B /* TimeTable.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,12 +314,13 @@
 				15E949112CE9B80B00B1D84B /* HomeItem.swift in Sources */,
 				15E949122CE9B80B00B1D84B /* LinkItem.swift in Sources */,
 				15E949132CE9B80B00B1D84B /* MemoItem.swift in Sources */,
+				15E949E72CFC609700B1D84B /* TimeTable.swift in Sources */,
 				15E949152CE9B80B00B1D84B /* CustomBackButton.swift in Sources */,
 				15E949162CE9B80B00B1D84B /* ClubListsView.swift in Sources */,
 				15E949172CE9B80B00B1D84B /* TopTabView.swift in Sources */,
 				15E949182CE9B80B00B1D84B /* EditLectureView.swift in Sources */,
+				15E949E52CFC5F9C00B1D84B /* Weekday.swift in Sources */,
 				15E949192CE9B80B00B1D84B /* HomeView.swift in Sources */,
-				15E9491A2CE9B80B00B1D84B /* LectureRow.swift in Sources */,
 				15E9491B2CE9B80B00B1D84B /* LinkRow.swift in Sources */,
 				15E9491C2CE9B80B00B1D84B /* LinkView.swift in Sources */,
 				15E9491D2CE9B80B00B1D84B /* MemoEditView.swift in Sources */,

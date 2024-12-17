@@ -47,6 +47,7 @@ struct WebSection: View {
                             }
                         }
                     }
+                    .presentationDragIndicator(.visible)
             }
         }
     }

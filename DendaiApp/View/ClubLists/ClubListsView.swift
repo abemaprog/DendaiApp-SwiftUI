@@ -226,10 +226,9 @@ extension ClubListsView {
                             .foregroundColor(.black)
                         Spacer()
                         Link(destination: url) {
-                            Image("X")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
+                            Image(systemName: "chevron.forward")
+                                .foregroundStyle(.gray)
+                                //.clipShape(RoundedRectangle(cornerRadius: 5))
                         }
                     }
                     .padding()

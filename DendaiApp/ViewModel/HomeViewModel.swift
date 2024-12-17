@@ -13,32 +13,11 @@ class HomeViewModel: ObservableObject {
     
     // 講義を保存する関数
     func saveLectures() {
-        if let encodedData = try? JSONEncoder().encode(lectureItems) {
+        do {
+            let encodedData = try JSONEncoder().encode(lectureItems)
             UserDefaults.standard.set(encodedData, forKey: "lectures")
-        }
-    }
-    
-    // 講義を読み込む関数
-    func loadLectures() {
-        if let savedData = UserDefaults.standard.data(forKey: "lectures"),
-           let decodedItems = try? JSONDecoder().decode([HomeItem].self, from: savedData) {
-            lectureItems = decodedItems
-        }
-    }
-    
-    // 講義を追加
-    func addLecture(lectureName: String, period: Int, room: String, day: String, time: String) {
-        let newLecture = HomeItem(lectureName: lectureName, period: period, room: room, day: day, time: time)
-        lectureItems.append(newLecture)
-    }
-    
-    // 講義を編集
-    func editLecture(item: HomeItem, lectureName: String, period: Int, room: String, time: String) {
-        if let index = lectureItems.firstIndex(where: { $0.id == item.id }) {
-            lectureItems[index].lectureName = lectureName
-            lectureItems[index].period = period
-            lectureItems[index].room = room
-            lectureItems[index].time = time
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
@@ -46,4 +25,38 @@ class HomeViewModel: ObservableObject {
     func deleteLecture(item: HomeItem) {
         lectureItems.removeAll { $0.id == item.id }
     }
+    
+    // 講義を読み込む関数
+    func loadLectures() {
+        do {
+            if let savedData = UserDefaults.standard.data(forKey: "lectures") {
+                lectureItems = try JSONDecoder().decode([HomeItem].self, from: savedData)
+            }
+        } catch {
+            print(error.localizedDescription)
+            lectureItems = []
+        }
+    }
+    
+    // 講義を追加
+    func addLecture(_ addLecture: HomeItem) {
+        lectureItems.append(addLecture)
+    }
+    
+    // 講義を編集
+    func editLecture(_ editLecture: HomeItem) {
+        if let index = lectureItems.firstIndex(where: { $0.id == editLecture.id }) {
+            lectureItems[index] = editLecture
+        }
+    }
+    // 指定の曜日・時限の講義を取得
+    func lectureFor(day: String, period: Int) -> HomeItem? {
+        lectureItems.first { $0.day == day && $0.period == period }
+    }
+    
+    // 講義が存在するか判定
+    func lectureExists(_ lecture: HomeItem) -> Bool {
+        lectureItems.contains { $0.id == lecture.id }
+    }
+   
 }
