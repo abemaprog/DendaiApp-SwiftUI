@@ -56,7 +56,7 @@ class ClubListsViewModel: ObservableObject {
             ClubListItem(name: "ラグビー部", url: ""),
             ClubListItem(name: "ソフトテニス部", url: "https://x.com/BuSofutote2012"),
             ClubListItem(name: "準硬式野球部", url: "https://x.com/dendaibaseball"),
-            ClubListItem(name: "フィギュアスケート部", url: ""),
+            ClubListItem(name: "フィギュアスケート部", url: "https://x.com/tdu_skate"),
             ClubListItem(name: "ハンドボール同好会", url: "https://x.com/TUD_handball"),
             ClubListItem(name: "フットサル同好会", url: "https://x.com/tdu_futsal2022")
         ]

@@ -220,18 +220,22 @@ extension ClubListsView {
             ForEach(clubs) { club in
                 // URLが空文字列か無効な場合はリンクを作らない
                 if !club.url.isEmpty, let url = URL(string: club.url) {
-                    Link(destination: url) {
-                        HStack {
-                            Text(club.name)
-                                .font(.headline)
-                                .foregroundColor(.black)
-                            Spacer()
+                    HStack {
+                        Text(club.name)
+                            .font(.headline)
+                            .foregroundColor(.black)
+                        Spacer()
+                        Link(destination: url) {
+                            Image(systemName: "chevron.forward")
+                                .foregroundStyle(.gray)
+                                .opacity(0.6)
                         }
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(8)
-                        .shadow(radius: 2)
                     }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .shadow(radius: 2)
+                    
                 } else {
                     // リンクがない場合はテキストのみ表示
                     HStack {

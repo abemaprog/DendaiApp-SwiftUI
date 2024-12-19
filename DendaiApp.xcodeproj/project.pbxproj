@@ -11,12 +11,10 @@
 		15E949112CE9B80B00B1D84B /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948E92CE9B80B00B1D84B /* HomeItem.swift */; };
 		15E949122CE9B80B00B1D84B /* LinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948EA2CE9B80B00B1D84B /* LinkItem.swift */; };
 		15E949132CE9B80B00B1D84B /* MemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948EB2CE9B80B00B1D84B /* MemoItem.swift */; };
-		15E949152CE9B80B00B1D84B /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F02CE9B80B00B1D84B /* CustomBackButton.swift */; };
 		15E949162CE9B80B00B1D84B /* ClubListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F22CE9B80B00B1D84B /* ClubListsView.swift */; };
 		15E949172CE9B80B00B1D84B /* TopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F32CE9B80B00B1D84B /* TopTabView.swift */; };
 		15E949182CE9B80B00B1D84B /* EditLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F62CE9B80B00B1D84B /* EditLectureView.swift */; };
 		15E949192CE9B80B00B1D84B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F72CE9B80B00B1D84B /* HomeView.swift */; };
-		15E9491A2CE9B80B00B1D84B /* LectureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F82CE9B80B00B1D84B /* LectureRow.swift */; };
 		15E9491B2CE9B80B00B1D84B /* LinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948FA2CE9B80B00B1D84B /* LinkRow.swift */; };
 		15E9491C2CE9B80B00B1D84B /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948FB2CE9B80B00B1D84B /* LinkView.swift */; };
 		15E9491D2CE9B80B00B1D84B /* MemoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948FD2CE9B80B00B1D84B /* MemoEditView.swift */; };
@@ -36,6 +34,9 @@
 		15E9498F2CF1A9CD00B1D84B /* WebUI in Frameworks */ = {isa = PBXBuildFile; productRef = 15E9498E2CF1A9CD00B1D84B /* WebUI */; };
 		15E949912CF1AA5800B1D84B /* WebSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949902CF1AA5700B1D84B /* WebSection.swift */; };
 		15E949932CF1CEC000B1D84B /* TextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949922CF1CEC000B1D84B /* TextSection.swift */; };
+		15E949E52CFC5F9C00B1D84B /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949E42CFC5F9C00B1D84B /* Weekday.swift */; };
+		15E949E72CFC609700B1D84B /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E949E62CFC609700B1D84B /* TimeTable.swift */; };
+		15E94A322D1442F100B1D84B /* HomeCustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E94A312D1442F100B1D84B /* HomeCustomHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,12 +46,10 @@
 		15E948EA2CE9B80B00B1D84B /* LinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItem.swift; sourceTree = "<group>"; };
 		15E948EB2CE9B80B00B1D84B /* MemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoItem.swift; sourceTree = "<group>"; };
 		15E948EE2CE9B80B00B1D84B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		15E948F02CE9B80B00B1D84B /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		15E948F22CE9B80B00B1D84B /* ClubListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListsView.swift; sourceTree = "<group>"; };
 		15E948F32CE9B80B00B1D84B /* TopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabView.swift; sourceTree = "<group>"; };
 		15E948F62CE9B80B00B1D84B /* EditLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLectureView.swift; sourceTree = "<group>"; };
 		15E948F72CE9B80B00B1D84B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		15E948F82CE9B80B00B1D84B /* LectureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureRow.swift; sourceTree = "<group>"; };
 		15E948FA2CE9B80B00B1D84B /* LinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRow.swift; sourceTree = "<group>"; };
 		15E948FB2CE9B80B00B1D84B /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		15E948FD2CE9B80B00B1D84B /* MemoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoEditView.swift; sourceTree = "<group>"; };
@@ -68,6 +67,9 @@
 		15E9492C2CE9B8F900B1D84B /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		15E949902CF1AA5700B1D84B /* WebSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSection.swift; sourceTree = "<group>"; };
 		15E949922CF1CEC000B1D84B /* TextSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSection.swift; sourceTree = "<group>"; };
+		15E949E42CFC5F9C00B1D84B /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		15E949E62CFC609700B1D84B /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
+		15E94A312D1442F100B1D84B /* HomeCustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,14 +119,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		15E948F12CE9B80B00B1D84B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				15E948F02CE9B80B00B1D84B /* CustomBackButton.swift */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		15E948F42CE9B80B00B1D84B /* ClubLists */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +131,7 @@
 		15E948F52CE9B80B00B1D84B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				15E94A312D1442F100B1D84B /* HomeCustomHeader.swift */,
 				15E9492C2CE9B8F900B1D84B /* CustomHeader.swift */,
 				15E949902CF1AA5700B1D84B /* WebSection.swift */,
 				15E949922CF1CEC000B1D84B /* TextSection.swift */,
@@ -147,9 +142,9 @@
 		15E948F92CE9B80B00B1D84B /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				15E948F62CE9B80B00B1D84B /* EditLectureView.swift */,
 				15E948F72CE9B80B00B1D84B /* HomeView.swift */,
-				15E948F82CE9B80B00B1D84B /* LectureRow.swift */,
+				15E948F62CE9B80B00B1D84B /* EditLectureView.swift */,
+				15E949E32CFC5F0F00B1D84B /* Components */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -213,12 +208,20 @@
 				15E948ED2CE9B80B00B1D84B /* Model */,
 				15E949052CE9B80B00B1D84B /* View */,
 				15E9490B2CE9B80B00B1D84B /* ViewModel */,
-				15E948F12CE9B80B00B1D84B /* Resources */,
 				15E948EF2CE9B80B00B1D84B /* Preview Content */,
 				15E9490C2CE9B80B00B1D84B /* Assets.xcassets */,
 				15E9490E2CE9B80B00B1D84B /* Task.txt */,
 			);
 			path = DendaiApp;
+			sourceTree = "<group>";
+		};
+		15E949E32CFC5F0F00B1D84B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				15E949E42CFC5F9C00B1D84B /* Weekday.swift */,
+				15E949E62CFC609700B1D84B /* TimeTable.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,12 +306,12 @@
 				15E949112CE9B80B00B1D84B /* HomeItem.swift in Sources */,
 				15E949122CE9B80B00B1D84B /* LinkItem.swift in Sources */,
 				15E949132CE9B80B00B1D84B /* MemoItem.swift in Sources */,
-				15E949152CE9B80B00B1D84B /* CustomBackButton.swift in Sources */,
+				15E949E72CFC609700B1D84B /* TimeTable.swift in Sources */,
 				15E949162CE9B80B00B1D84B /* ClubListsView.swift in Sources */,
 				15E949172CE9B80B00B1D84B /* TopTabView.swift in Sources */,
 				15E949182CE9B80B00B1D84B /* EditLectureView.swift in Sources */,
+				15E949E52CFC5F9C00B1D84B /* Weekday.swift in Sources */,
 				15E949192CE9B80B00B1D84B /* HomeView.swift in Sources */,
-				15E9491A2CE9B80B00B1D84B /* LectureRow.swift in Sources */,
 				15E9491B2CE9B80B00B1D84B /* LinkRow.swift in Sources */,
 				15E9491C2CE9B80B00B1D84B /* LinkView.swift in Sources */,
 				15E9491D2CE9B80B00B1D84B /* MemoEditView.swift in Sources */,
@@ -318,6 +321,7 @@
 				15E949222CE9B80B00B1D84B /* SplashView.swift in Sources */,
 				15E949232CE9B80B00B1D84B /* ClubListsViewModel.swift in Sources */,
 				15E949912CF1AA5800B1D84B /* WebSection.swift in Sources */,
+				15E94A322D1442F100B1D84B /* HomeCustomHeader.swift in Sources */,
 				15E949242CE9B80B00B1D84B /* HomeViewModel.swift in Sources */,
 				15E949932CF1CEC000B1D84B /* TextSection.swift in Sources */,
 				15E949252CE9B80B00B1D84B /* LinkViewModel.swift in Sources */,

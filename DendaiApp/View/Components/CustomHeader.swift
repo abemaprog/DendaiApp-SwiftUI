@@ -15,8 +15,7 @@ struct CustomHeader: View {
         Text(label)
             .font(.title3)
             .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: 60)
             .background(Color.cyan)
     }
 }

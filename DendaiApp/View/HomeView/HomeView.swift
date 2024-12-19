@@ -1,115 +1,86 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var homeVM = HomeViewModel()
-    @State private var expandedDays: [String: Bool] = [:]  // 曜日ごとのトグル状態を管理
+    @ObservedObject var homeVM = HomeViewModel()
+    @AppStorage("selectedDepartment") var selectedDepartment: String = "学部"
     @State private var selectedLecture: HomeItem? = nil // 編集する講義
-    @State private var selectedDay: String? = nil // 講義を追加する曜日
+    @FocusState private var textFieldFocused: Bool
+
+    let weekdays = ["月", "火", "水", "木", "金", "土"]
+    let periods = 1...7
+    let departments = [
+        ("学部", [("9:20", "11:00"), ("11:10", "12:50"), ("13:40", "15:20"), ("15:30", "17:10"), ("17:20", "19:00"), ("", ""), ("", "")]),
+        ("大学院", [("9:20", "11:00"), ("11:10", "12:50"), ("13:40", "15:20"), ("15:30", "17:10"), ("18:00", "19:40"), ("19:50", "21:30"), ("", "")]),
+        ("工学部第二部", [("9:00", "10:30"), ("10:40", "12:10"), ("13:10", "14:40"), ("14:50", "16:20"), ("16:30", "18:00"), ("18:10", "19:40"), ("19:50", "21:20")]),
+    ]
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 // ヘッダー
-                CustomHeader(label: "Home")
+                HomeCustomHeader(
+                    selectedDepartment: $selectedDepartment,
+                    departments: departments,
+                    label: "Home"
+                )
                 
-                // テキスト「時間割」の表示
-                displayTitle
-                
-                // 各曜日ごとの講義を表示する
-                displayLecture
+                ScrollView {
+                    Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+                        // 曜日ヘッダー
+                        Weekday(weekdays: weekdays)
+                        
+                        // 各時限ごとに表示
+                        ForEach(Array(zip(periods, getTimes(for: selectedDepartment))), id: \.0) { (period, time) in
+                            TimeTable(
+                                period: period,
+                                startTime: time.0,
+                                endTime: time.1,
+                                weekdays: weekdays,
+                                lectureItems: homeVM.lectureItems,
+                                onLectureTap: { lecture, day in
+                                    if let lecture = lecture {
+                                        selectedLecture = lecture
+                                    } else {
+                                        selectedLecture = HomeItem(
+                                            lectureName: "",
+                                            period: period,
+                                            room: "",
+                                            day: day, 
+                                            time: "\(time.0) - \(time.1)"
+                                        )
+                                    }
+                                })
+                            .overlay(
+                                Rectangle()
+                                    .stroke(Color.gray.opacity(0.1), lineWidth: 1)
+                            )
+                        }
+                    }
+                    
+                    Spacer().frame(height: 30)
+                }
+            }
+            .sheet(item: $selectedLecture) { lecture in
+                EditLectureView(
+                    homeVM: homeVM,
+                    lecture: lecture
+                )
+                .presentationDetents([.medium])
+                .presentationCornerRadius(15)
+                .presentationDragIndicator(.visible)
+            }
+            .onTapGesture {
+                textFieldFocused = false
             }
         }
-        .tint(.black)
+        
+    }
+    private func getTimes(for department: String) -> [(String, String)] {
+        departments.first(where: { $0.0 == department })?.1 ?? []
     }
 }
 
 #Preview {
-    HomeView()
+    ContentView()
 }
 
-extension HomeView {
-    // テキスト「時間割の表示」
-    private var displayTitle: some View {
-        VStack(alignment: .leading) {
-                Text("時間割")
-                    .font(.title3)
-                    .bold()
-                    .padding()
-                
-            Divider()
-            Spacer().frame(height:10)
-        }
-    }
-    private var displayLecture: some View {
-        ScrollView {
-            ForEach(weekdays, id: \.self) { day in
-                VStack {
-                    // 曜日のヘッダー
-                    dayHeader(day: day)
-                    
-                    // 開いた場合、該当曜日の講義を表示
-                    if expandedDays[day] == true {
-                        // 特定の曜日の講義を表示（昇順でソート）
-                        ForEach(homeVM.lectureItems
-                            .filter { $0.day == day }   // 曜日でフィルタ
-                            .sorted { $0.period < $1.period }  // 時限で昇順にソート
-                        ) { lecture in
-                            NavigationLink(destination: EditLectureView(homeVM: homeVM, selectedLecture: lecture)) {
-                                LectureRow(lecture: lecture)
-                            }
-                        }
-                        .padding(.horizontal)
-                        
-                        // 追加ボタンを表示
-                        addLectureButton(for: day)
-                    }
-                }
-            }
-        }
-    }
-    
-    // 曜日のヘッダー
-    private func dayHeader(day: String) -> some View {
-        Button(action: {
-            // 曜日の開閉状態をトグル
-            expandedDays[day] = !(expandedDays[day] ?? false)
-        }) {
-            HStack {
-                Text(day)
-                    .font(.headline)
-                    .foregroundColor(.black)
-                    .padding()
-                Spacer()
-                Image(systemName: (expandedDays[day] ?? false) ? "chevron.up" : "chevron.down")
-                    .foregroundColor(.gray)
-                    .padding()
-            }
-            .background(Color.white)
-            .cornerRadius(8)
-            .shadow(radius: 2)
-        }
-    }
-    
-    // 追加ボタンを表示
-    private func addLectureButton(for day: String) -> some View {
-        NavigationLink(destination: EditLectureView(homeVM: homeVM, selectedDay: day)) {
-            VStack {
-                HStack {
-                    Spacer()
-                    Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 13))
-                    Text("\(day)に講義を追加")
-                        .fontWeight(.bold)
-                }
-                .foregroundColor(.blue)
-                .padding(.horizontal)
-            }
-            .padding()
-        }
-    }
-    // 曜日のリスト
-    private var weekdays: [String] {
-        ["月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
-    }
-
-}

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MemoView: View {
-    @StateObject private var memoVM = MemoViewModel()
+    @ObservedObject private var memoVM = MemoViewModel()
     @State private var newMemoContent = ""
     
     @FocusState private var textFieldFocused: Bool
@@ -14,10 +14,14 @@ struct MemoView: View {
                 Spacer().frame(height: 20)
                 // メモの追加フォーム
                 addMemo
+                    .onTapGesture {
+                        textFieldFocused = false
+                    }
                 Spacer().frame(height: 20)
                 // メモのリスト表示
                 memoList
             }
+            .scrollDismissesKeyboard(.immediately)
         }
         .tint(.black)
     }
@@ -26,6 +30,7 @@ struct MemoView: View {
 #Preview {
     MemoView()
 }
+
 
 extension MemoView {
     private var addMemo: some View {
@@ -38,7 +43,7 @@ extension MemoView {
                     ToolbarItemGroup(placement: .keyboard) {
                         Spacer()
                         Button("Done") {
-                            textFieldFocused = false // Dismiss the keyboard
+                            textFieldFocused = false // キーボードを閉じる
                         }
                     }
                 }
@@ -47,6 +52,7 @@ extension MemoView {
                 guard !newMemoContent.isEmpty else { return }
                 memoVM.addMemo(content: newMemoContent)
                 newMemoContent = "" // 追加後にテキストフィールドをクリア
+                textFieldFocused = false
             }) {
                 Image(systemName: "plus.circle.fill")
                     .font(.system(size: 30))
