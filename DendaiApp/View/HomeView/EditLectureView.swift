@@ -3,14 +3,18 @@ import SwiftUI
 struct EditLectureView: View {
     @ObservedObject var homeVM: HomeViewModel
     @FocusState private var textFieldFocused: Bool
+    
+    @Environment(\.dismiss) var dismiss
+    
+    @State private var lectureName: String = ""
+    @State private var room: String = ""
+    @State private var isWebPresented = false
     @State var lecture: HomeItem
     
     var selectedDay: String? = nil      // 追加する曜日
     var selectedLecture: HomeItem? = nil // 編集する講義
     
-    @Environment(\.dismiss) var dismiss
-    @State private var lectureName: String = ""
-    @State private var room: String = ""
+    
     
     // 時限数のところに埋め込めるようにする
     let times: [(String, [String])] = [
@@ -23,12 +27,22 @@ struct EditLectureView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 Form {
-                    Section(header: Text("講義情報を入力")) {
+                    Section(header: Text("\(lecture.day)曜日\(lecture.period)限の講義情報を入力")) {
                         TextField("講義名", text: $lectureName)
+                            .focused($textFieldFocused)
+                            .toolbar {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    Spacer()
+                                    //キーボードをとじる
+                                    Button("Done") {
+                                        textFieldFocused = false
+                                    }
+                                }
+                            }
                         TextField("教室", text: $room)
-                        
+                            .focused($textFieldFocused)
                     }
-                    .focused($textFieldFocused)
+                    
                     
                     Button("保存") {
                         
@@ -70,4 +84,10 @@ struct EditLectureView: View {
 
 #Preview {
     ContentView()
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }

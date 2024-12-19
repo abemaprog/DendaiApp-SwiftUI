@@ -17,7 +17,7 @@ struct TimeTable: View {
         GridRow {
             // 時限列
             Text("\(period)")
-                .font(.caption)
+                .font(.caption2)
                 .bold()
                 .frame(width: 10, height: 90)
             
@@ -43,8 +43,8 @@ struct TimeTable: View {
                                 .frame(width: 50)
                                 .lineLimit(1)
                                 .background(Color.white)
-                                .padding(1) // 内側の余白を追加
-                                .padding(.bottom, 1)
+                                .padding(1)
+                                .padding(.bottom, 3)
                         }
                     }
                     .frame(width: 60, height: 90)

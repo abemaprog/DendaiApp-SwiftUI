@@ -228,7 +228,7 @@ extension ClubListsView {
                         Link(destination: url) {
                             Image(systemName: "chevron.forward")
                                 .foregroundStyle(.gray)
-                                //.clipShape(RoundedRectangle(cornerRadius: 5))
+                                .opacity(0.6)
                         }
                     }
                     .padding()

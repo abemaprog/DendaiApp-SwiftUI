@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MemoEditView: View {
     @State var memo: MemoItem
-    @StateObject var memoVM: MemoViewModel
+    @ObservedObject var memoVM: MemoViewModel
     @State private var updatedContent = ""
     @Environment(\.dismiss) var dismiss
     
@@ -18,7 +18,7 @@ struct MemoEditView: View {
     var body: some View {
         VStack {
             // ヘッダー
-            header
+            CustomHeader(label: "メモの編集")
             
             // メモの編集フォーム
             TextField("メモ内容を編集", text: $updatedContent)
@@ -52,15 +52,6 @@ struct MemoEditView: View {
 }
 
 extension MemoEditView {
-    private var header: some View {
-        Text("メモの編集")
-            .font(.title3)
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.cyan)
-    }
-    
     private var saveButton: some View {
         Button(action: {
             // メモ内容を保存する処理

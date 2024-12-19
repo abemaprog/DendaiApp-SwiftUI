@@ -1,8 +1,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var homeVM = HomeViewModel()
+    @ObservedObject var homeVM = HomeViewModel()
+    
     @State private var selectedLecture: HomeItem? = nil // 編集する講義
+    
+    @FocusState private var textFieldFocused: Bool
 
     let weekdays = ["月", "火", "水", "木", "金", "土"]
     let periods = 1...7
@@ -32,7 +35,7 @@ struct HomeView: View {
                                             lectureName: "",
                                             period: period,
                                             room: "",
-                                            day: day, // 渡された曜日を設定
+                                            day: day, 
                                             time: ""
                                         )
                                     }
@@ -53,6 +56,9 @@ struct HomeView: View {
                 .presentationDetents([.medium])
                 .presentationCornerRadius(15)
                 .presentationDragIndicator(.visible)
+            }
+            .onTapGesture {
+                textFieldFocused = false
             }
         }
         

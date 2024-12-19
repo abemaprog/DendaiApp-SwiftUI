@@ -119,12 +119,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		15E948F12CE9B80B00B1D84B /* Resources */ = {
+		15E948F12CE9B80B00B1D84B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				15E948F02CE9B80B00B1D84B /* CustomBackButton.swift */,
 			);
-			path = Resources;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		15E948F42CE9B80B00B1D84B /* ClubLists */ = {
@@ -215,7 +215,7 @@
 				15E948ED2CE9B80B00B1D84B /* Model */,
 				15E949052CE9B80B00B1D84B /* View */,
 				15E9490B2CE9B80B00B1D84B /* ViewModel */,
-				15E948F12CE9B80B00B1D84B /* Resources */,
+				15E948F12CE9B80B00B1D84B /* Extension */,
 				15E948EF2CE9B80B00B1D84B /* Preview Content */,
 				15E9490C2CE9B80B00B1D84B /* Assets.xcassets */,
 				15E9490E2CE9B80B00B1D84B /* Task.txt */,
