@@ -5,8 +5,6 @@
 //  Created by Manato Abe on 2024/10/10.
 //
 
-//Zennからのコピペをそのまま採用
-
 import SwiftUI
 
 struct TopTabView: View {
@@ -41,6 +39,5 @@ struct TopTabView: View {
         }
         .frame(height: 48)
         .background(Color.white)
-        //.shadow(color: .primary.opacity(0.2), radius: 3, x: 4, y: 4)
     }
 }

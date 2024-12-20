@@ -2,7 +2,7 @@ import SwiftUI
 
 struct LinkView: View {
     // ViewModelのインスタンスを保持
-    @StateObject var linkVM = LinkViewModel()
+    @ObservedObject var linkVM = LinkViewModel()
     
     var body: some View {
         VStack {
