@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ClubListsView: View {
-    @StateObject private var clubListsVM = ClubListsViewModel()
+    @ObservedObject private var clubListsVM = ClubListsViewModel()
     @State private var selectedTab: Int = 0 // 0: 千住, 1: 鳩山
     @FocusState private var textFieldFocused: Bool
     

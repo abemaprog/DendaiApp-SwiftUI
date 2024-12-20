@@ -8,7 +8,6 @@ struct EditLectureView: View {
     
     @State private var lectureName: String = ""
     @State private var room: String = ""
-    @State private var isWebPresented = false
     @State var lecture: HomeItem
     
     var selectedDay: String? = nil      // 追加する曜日
@@ -22,7 +21,7 @@ struct EditLectureView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 Form {
-                    Section(header: Text("\(lecture.day)曜日\(lecture.period)限の講義情報を入力")) {
+                    Section(header: Text("\(lecture.day)曜日\(lecture.period)限の講義情報")) {
                         TextField("講義名", text: $lectureName)
                             .focused($textFieldFocused)
                             .toolbar {
@@ -79,10 +78,4 @@ struct EditLectureView: View {
 
 #Preview {
     ContentView()
-}
-
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
 }

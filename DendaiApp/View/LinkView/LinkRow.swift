@@ -11,7 +11,7 @@ struct LinkRow: View {
     let link: LinkItem
     
     var body: some View {
-        // 外部ブラウザ（Safari）でリンクを開く
+        // 外部ブラウザでリンクを開く
         Button(action: {
             if let url = URL(string: link.url) {
                 UIApplication.shared.open(url)

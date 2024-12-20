@@ -11,12 +11,12 @@ class MemoViewModel: ObservableObject {
     @Published var memoItems: [MemoItem] = [] {
         didSet {
             // メモが変更されたら自動で保存
-            UserDefaults.saveMemos(memoItems)
+            saveMemos()
         }
     }
     init() {
         // アプリ起動時にメモをロード
-        memoItems = UserDefaults.loadMemos()
+        loadMemos()
     }
     
     // 新しいメモを追加
@@ -40,5 +40,23 @@ class MemoViewModel: ObservableObject {
     func moveMemo(from source: IndexSet, to destination: Int) {
         memoItems.move(fromOffsets: source, toOffset: destination)
     }
+    // メモを保存
+    func saveMemos() {
+        do {
+            let memoData = try JSONEncoder().encode(memoItems)
+            UserDefaults.standard.set(memoData, forKey: "memos")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    // メモを読み込み
+    func loadMemos() {
+        do {
+            if let savedMemo = UserDefaults.standard.data(forKey: "memos") {
+                memoItems = try JSONDecoder().decode([MemoItem].self, from: savedMemo)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
-
