@@ -18,8 +18,21 @@ struct MemoView: View {
                         textFieldFocused = false
                     }
                 Spacer().frame(height: 20)
+                
                 // メモのリスト表示
-                memoList
+                List {
+                    ForEach(memoVM.memoItems) { memo in
+                        NavigationLink(destination: MemoEditView(memo: memo, memoVM: memoVM)) {
+                            Text(memo.content)
+                        }
+                        
+                    }
+                    .onDelete(perform: memoVM.deleteMemo) // スワイプで削除
+                    .onMove(perform: memoVM.moveMemo)     // 並べ替え
+                    .moveDisabled(false)                 // 常に並べ替えを可能に
+                }
+                
+                .listStyle(PlainListStyle())
             }
             .scrollDismissesKeyboard(.immediately)
         }
@@ -60,21 +73,5 @@ extension MemoView {
             }
             .padding(.trailing)
         }
-    }
-    
-    private var memoList: some View {
-        List {
-            ForEach(memoVM.memoItems) { memo in
-                NavigationLink(destination: MemoEditView(memo: memo, memoVM: memoVM)) {
-                    Text(memo.content)
-                }
-                
-            }
-            .onDelete(perform: memoVM.deleteMemo) // スワイプで削除
-            .onMove(perform: memoVM.moveMemo)     // 並べ替え
-            .moveDisabled(false)                 // 常に並べ替えを可能に
-        }
-        
-        .listStyle(PlainListStyle())
     }
 }

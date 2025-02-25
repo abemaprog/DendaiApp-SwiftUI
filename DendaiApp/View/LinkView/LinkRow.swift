@@ -18,7 +18,24 @@ struct LinkRow: View {
             }
         }) {
             // 出力を表示する
-            displayItem
+            HStack {
+                // 画像を出力
+                Image(systemName: link.image)
+                    .font(.system(size: 24))
+                    .foregroundColor(link.color)
+                    .frame(width: 40, height: 40)
+                
+                // サイト名を出力
+                Text(link.title)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                
+                Spacer()
+            }
+            .padding()
+            .background(Color(.white))
+            .cornerRadius(10)
+            .shadow(radius: 2)
         }
         
     }
@@ -28,25 +45,3 @@ struct LinkRow: View {
     LinkRow(link: LinkItem(title: "Test", image: "link.circle", url: "https://www.example.com", color: .blue))
 }
 
-extension LinkRow {
-    private var displayItem: some View {
-        HStack {
-            // 画像を出力
-            Image(systemName: link.image)
-                .font(.system(size: 24))
-                .foregroundColor(link.color)
-                .frame(width: 40, height: 40)
-            
-            // サイト名を出力
-            Text(link.title)
-                .font(.headline)
-                .foregroundColor(.primary)
-            
-            Spacer()
-        }
-        .padding()
-        .background(Color(.white))
-        .cornerRadius(10)
-        .shadow(radius: 2)
-    }
-}

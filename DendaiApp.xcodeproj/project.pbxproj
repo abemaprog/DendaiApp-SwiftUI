@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15E949102CE9B80B00B1D84B /* ClubListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948E82CE9B80B00B1D84B /* ClubListItem.swift */; };
-		15E949112CE9B80B00B1D84B /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948E92CE9B80B00B1D84B /* HomeItem.swift */; };
-		15E949122CE9B80B00B1D84B /* LinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948EA2CE9B80B00B1D84B /* LinkItem.swift */; };
-		15E949132CE9B80B00B1D84B /* MemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948EB2CE9B80B00B1D84B /* MemoItem.swift */; };
+		15A2DF902D65AC02005C2528 /* ClubListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A2DF8B2D65AC02005C2528 /* ClubListItem.swift */; };
+		15A2DF912D65AC02005C2528 /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A2DF8C2D65AC02005C2528 /* HomeItem.swift */; };
+		15A2DF922D65AC02005C2528 /* LinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A2DF8D2D65AC02005C2528 /* LinkItem.swift */; };
+		15A2DF932D65AC02005C2528 /* MemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A2DF8E2D65AC02005C2528 /* MemoItem.swift */; };
 		15E949162CE9B80B00B1D84B /* ClubListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F22CE9B80B00B1D84B /* ClubListsView.swift */; };
 		15E949172CE9B80B00B1D84B /* TopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F32CE9B80B00B1D84B /* TopTabView.swift */; };
 		15E949182CE9B80B00B1D84B /* EditLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E948F62CE9B80B00B1D84B /* EditLectureView.swift */; };
@@ -40,11 +40,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15A2DF8B2D65AC02005C2528 /* ClubListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListItem.swift; sourceTree = "<group>"; };
+		15A2DF8C2D65AC02005C2528 /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
+		15A2DF8D2D65AC02005C2528 /* LinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItem.swift; sourceTree = "<group>"; };
+		15A2DF8E2D65AC02005C2528 /* MemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoItem.swift; sourceTree = "<group>"; };
 		15C351472CB572FD00B1F799 /* DendaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DendaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		15E948E82CE9B80B00B1D84B /* ClubListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListItem.swift; sourceTree = "<group>"; };
-		15E948E92CE9B80B00B1D84B /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
-		15E948EA2CE9B80B00B1D84B /* LinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItem.swift; sourceTree = "<group>"; };
-		15E948EB2CE9B80B00B1D84B /* MemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoItem.swift; sourceTree = "<group>"; };
 		15E948EE2CE9B80B00B1D84B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15E948F22CE9B80B00B1D84B /* ClubListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListsView.swift; sourceTree = "<group>"; };
 		15E948F32CE9B80B00B1D84B /* TopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabView.swift; sourceTree = "<group>"; };
@@ -84,6 +84,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15A2DF8F2D65AC02005C2528 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15A2DF8B2D65AC02005C2528 /* ClubListItem.swift */,
+				15A2DF8C2D65AC02005C2528 /* HomeItem.swift */,
+				15A2DF8D2D65AC02005C2528 /* LinkItem.swift */,
+				15A2DF8E2D65AC02005C2528 /* MemoItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		15C3513E2CB572FD00B1F799 = {
 			isa = PBXGroup;
 			children = (
@@ -98,17 +109,6 @@
 				15C351472CB572FD00B1F799 /* DendaiApp.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		15E948ED2CE9B80B00B1D84B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				15E948E82CE9B80B00B1D84B /* ClubListItem.swift */,
-				15E948E92CE9B80B00B1D84B /* HomeItem.swift */,
-				15E948EA2CE9B80B00B1D84B /* LinkItem.swift */,
-				15E948EB2CE9B80B00B1D84B /* MemoItem.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		15E948EF2CE9B80B00B1D84B /* Preview Content */ = {
@@ -205,7 +205,7 @@
 				15E9490D2CE9B80B00B1D84B /* DendaiApp.swift */,
 				15E949042CE9B80B00B1D84B /* SplashView.swift */,
 				15E949032CE9B80B00B1D84B /* ContentView.swift */,
-				15E948ED2CE9B80B00B1D84B /* Model */,
+				15A2DF8F2D65AC02005C2528 /* Model */,
 				15E949052CE9B80B00B1D84B /* View */,
 				15E9490B2CE9B80B00B1D84B /* ViewModel */,
 				15E948EF2CE9B80B00B1D84B /* Preview Content */,
@@ -302,10 +302,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15E949102CE9B80B00B1D84B /* ClubListItem.swift in Sources */,
-				15E949112CE9B80B00B1D84B /* HomeItem.swift in Sources */,
-				15E949122CE9B80B00B1D84B /* LinkItem.swift in Sources */,
-				15E949132CE9B80B00B1D84B /* MemoItem.swift in Sources */,
 				15E949E72CFC609700B1D84B /* TimeTable.swift in Sources */,
 				15E949162CE9B80B00B1D84B /* ClubListsView.swift in Sources */,
 				15E949172CE9B80B00B1D84B /* TopTabView.swift in Sources */,
@@ -322,6 +318,10 @@
 				15E949232CE9B80B00B1D84B /* ClubListsViewModel.swift in Sources */,
 				15E949912CF1AA5800B1D84B /* WebSection.swift in Sources */,
 				15E94A322D1442F100B1D84B /* HomeCustomHeader.swift in Sources */,
+				15A2DF902D65AC02005C2528 /* ClubListItem.swift in Sources */,
+				15A2DF912D65AC02005C2528 /* HomeItem.swift in Sources */,
+				15A2DF922D65AC02005C2528 /* LinkItem.swift in Sources */,
+				15A2DF932D65AC02005C2528 /* MemoItem.swift in Sources */,
 				15E949242CE9B80B00B1D84B /* HomeViewModel.swift in Sources */,
 				15E949932CF1CEC000B1D84B /* TextSection.swift in Sources */,
 				15E949252CE9B80B00B1D84B /* LinkViewModel.swift in Sources */,
@@ -459,7 +459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DendaiApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 3NHYWY3V2F;
 				ENABLE_PREVIEWS = YES;
@@ -477,7 +477,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.abema.DendaiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -492,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DendaiApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 3NHYWY3V2F;
 				ENABLE_PREVIEWS = YES;
@@ -510,7 +510,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.abema.DendaiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
